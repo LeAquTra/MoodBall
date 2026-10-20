@@ -1,0 +1,21 @@
+{
+  "filesystem": {
+    "transport": "stdio",
+    "command": "npx.cmd",
+    "args": [
+      "-y",
+      "@modelcontextprotocol/server-filesystem",
+      "E:/Pycharm/Project/MoodBall"
+    ],
+    "env": {},
+    "enabled": false,
+    "timeout_s": 30
+  },
+  "local-http": {
+    "transport": "http",
+    "url": "http://127.0.0.1:8931/mcp",
+    "headers": {},
+    "enabled": false,
+    "timeout_s": 30
+  }
+}

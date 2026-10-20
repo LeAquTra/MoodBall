@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# 虚拟环境
+.venv/
+.venv-asr/
+venv/
+
+# 本地配置与密钥
+.env
+.env.*
+!.env.example
+
+# 数据库 / 检查点 / 备份
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+backup/
+
+# 媒体与模型
+media/images/*
+media/tts/*
+!media/images/.gitkeep
+!media/tts/.gitkeep
+models/
+
+# 前端
+web/node_modules/
+web/dist/
+web/.vite/
+web/coverage/
+
+# 工具运行产物 / 临时文件
+.dsh-acl-recovery/
+.tmp-browser/
+.tmp-*
+*.tmp
+staticfiles/
+.dev-pids.json
+mcp_stderr/
+logs/
+
+# 截图与浏览器配置
+.edge-profile/
+.screenshot-*.png
+
+# IDE / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

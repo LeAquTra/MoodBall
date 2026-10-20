@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1080" viewBox="0 0 1500 1080" role="img" aria-label="MoodBall 摄像头采集与视觉分析">
+<title>MoodBall 摄像头采集与视觉分析</title>
+<defs><marker id="m-1f2328" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2328"/></marker><marker id="m-57606a" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#57606a"/></marker><marker id="m-0969da" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0969da"/></marker><marker id="m-1a7f37" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1a7f37"/></marker><marker id="m-9a6700" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9a6700"/></marker><marker id="m-cf222e" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#cf222e"/></marker><marker id="m-8250df" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8250df"/></marker><marker id="m-0d7d7d" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0d7d7d"/></marker><marker id="m-afb8c1" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#afb8c1"/></marker></defs>
+<rect x="0" y="0" width="1500" height="1080" fill="#fbfbfa"/>
+<text x="44" y="42" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="600" fill="#8c959f" text-anchor="start" letter-spacing="1.4">MOODBALL / VISION</text>
+<text x="44" y="80" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="29" font-weight="650" fill="#1f2328" text-anchor="start">摄像头采集与视觉分析：OpenCV 在后端抓帧，智谱负责「看懂」</text>
+<text x="44" y="108" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13.5" font-weight="400" fill="#57606a" text-anchor="start">浏览器不能直接调用 cv2；摄像头由 Django 进程独占。抓帧、压缩、脱敏、调用、校验、落库，每一步都可以单独失败。</text>
+<line x1="44" y1="124" x2="1456" y2="124" stroke="#d0d7de" stroke-width="1"/>
+<rect x="60" y="190" width="180" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M61.5 202 Q61.5 191.5 72 191.5 L65 191.5 L65 260.5 L72 260.5 Q61.5 260.5 61.5 250 Z" fill="#0969da" opacity=".9"/>
+<text x="78" y="216" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">触发</text>
+<text x="78" y="238" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">Agent 工具 / 手动按钮</text>
+<rect x="270" y="190" width="180" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M271.5 202 Q271.5 191.5 282 191.5 L275 191.5 L275 260.5 L282 260.5 Q271.5 260.5 271.5 250 Z" fill="#0969da" opacity=".9"/>
+<text x="288" y="216" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">抓帧锁</text>
+<text x="288" y="238" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">单飞锁 · 防并发</text>
+<text x="288" y="252" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">同一时刻只抓一帧</text>
+<rect x="480" y="190" width="200" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M481.5 202 Q481.5 191.5 492 191.5 L485 191.5 L485 260.5 L492 260.5 Q481.5 260.5 481.5 250 Z" fill="#0969da" opacity=".9"/>
+<text x="498" y="216" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">OpenCV 打开</text>
+<text x="498" y="238" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">VideoCapture(index)</text>
+<text x="498" y="252" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">Windows: CAP_DSHOW</text>
+<rect x="710" y="190" width="180" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M711.5 202 Q711.5 191.5 722 191.5 L715 191.5 L715 260.5 L722 260.5 Q711.5 260.5 711.5 250 Z" fill="#0969da" opacity=".9"/>
+<text x="728" y="216" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">预热</text>
+<text x="728" y="238" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">丢弃前 3–5 帧</text>
+<text x="728" y="252" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">等待曝光稳定</text>
+<rect x="920" y="190" width="180" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M921.5 202 Q921.5 191.5 932 191.5 L925 191.5 L925 260.5 L932 260.5 Q921.5 260.5 921.5 250 Z" fill="#0969da" opacity=".9"/>
+<text x="938" y="216" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">读取帧</text>
+<text x="938" y="238" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">read() → BGR</text>
+<text x="938" y="252" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">失败则重连</text>
+<rect x="1140" y="190" width="300" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M1141.5 202 Q1141.5 191.5 1152 191.5 L1145 191.5 L1145 260.5 L1152 260.5 Q1141.5 260.5 1141.5 250 Z" fill="#9a6700" opacity=".9"/>
+<text x="1158" y="216" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">质量校验</text>
+<text x="1158" y="238" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">亮度均值 / 拉普拉斯方差</text>
+<text x="1158" y="252" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">拒绝全黑 / 全糊</text>
+<path d="M 242 226 L 268 226" fill="none" stroke="#0969da" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<path d="M 452 226 L 478 226" fill="none" stroke="#0969da" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<path d="M 682 226 L 708 226" fill="none" stroke="#0969da" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<path d="M 892 226 L 918 226" fill="none" stroke="#0969da" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<path d="M 1102 226 L 1138 226" fill="none" stroke="#0969da" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<rect x="1140" y="330" width="300" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M1141.5 342 Q1141.5 331.5 1152 331.5 L1145 331.5 L1145 400.5 L1152 400.5 Q1141.5 400.5 1141.5 390 Z" fill="#9a6700" opacity=".9"/>
+<text x="1158" y="356" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">缩放 / JPEG</text>
+<text x="1158" y="378" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">长边 1280 · quality 82</text>
+<text x="1158" y="392" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">不保留原图</text>
+<rect x="920" y="330" width="190" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M921.5 342 Q921.5 331.5 932 331.5 L925 331.5 L925 400.5 L932 400.5 Q921.5 400.5 921.5 390 Z" fill="#9a6700" opacity=".9"/>
+<text x="938" y="356" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">EXIF / 哈希</text>
+<text x="938" y="378" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">剥 EXIF / 方向校正</text>
+<text x="938" y="392" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">sha256 去重</text>
+<rect x="710" y="330" width="180" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M711.5 342 Q711.5 331.5 722 331.5 L715 331.5 L715 400.5 L722 400.5 Q711.5 400.5 711.5 390 Z" fill="#cf222e" opacity=".9"/>
+<text x="728" y="356" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">隐私门控</text>
+<text x="728" y="378" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">是否允许上传</text>
+<text x="728" y="392" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">人脸模糊 / 不识别</text>
+<rect x="480" y="330" width="200" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M481.5 342 Q481.5 331.5 492 331.5 L485 331.5 L485 400.5 L492 400.5 Q481.5 400.5 481.5 390 Z" fill="#9a6700" opacity=".9"/>
+<text x="498" y="356" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">base64</text>
+<text x="498" y="378" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">data:image/jpeg;base64,</text>
+<text x="498" y="392" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">单次 ≤ 2 MB</text>
+<rect x="270" y="330" width="190" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M271.5 342 Q271.5 331.5 282 331.5 L275 331.5 L275 400.5 L282 400.5 Q271.5 400.5 271.5 390 Z" fill="#8250df" opacity=".9"/>
+<text x="288" y="356" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">智谱视觉</text>
+<text x="288" y="378" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">GLM-4.6V / 5.3</text>
+<text x="288" y="392" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">timeout 20 s · 重试 1</text>
+<rect x="60" y="330" width="180" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M61.5 342 Q61.5 331.5 72 331.5 L65 331.5 L65 400.5 L72 400.5 Q61.5 400.5 61.5 390 Z" fill="#8250df" opacity=".9"/>
+<text x="78" y="356" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">JSON 校验</text>
+<text x="78" y="378" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">Pydantic schema</text>
+<text x="78" y="392" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">失败 → 文本兜底</text>
+<path d="M 1290 262 L 1290 330" fill="none" stroke="#9a6700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-9a6700)"/>
+<path d="M 1138 366 L 1112 366" fill="none" stroke="#9a6700" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-9a6700)"/>
+<path d="M 918 366 L 892 366" fill="none" stroke="#9a6700" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-9a6700)"/>
+<path d="M 708 366 L 682 366" fill="none" stroke="#9a6700" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-9a6700)"/>
+<path d="M 478 366 L 462 366" fill="none" stroke="#9a6700" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-9a6700)"/>
+<path d="M 268 366 L 242 366" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<rect x="60" y="520" width="220" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M61.5 532 Q61.5 521.5 72 521.5 L65 521.5 L65 590.5 L72 590.5 Q61.5 590.5 61.5 580 Z" fill="#1a7f37" opacity=".9"/>
+<text x="78" y="546" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">合并上下文</text>
+<text x="78" y="568" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">用户文本 + 视觉 JSON</text>
+<text x="78" y="582" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">历史 / 记忆 / 人格</text>
+<rect x="310" y="520" width="220" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M311.5 532 Q311.5 521.5 322 521.5 L315 521.5 L315 590.5 L322 590.5 Q311.5 590.5 311.5 580 Z" fill="#1a7f37" opacity=".9"/>
+<text x="328" y="546" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">表情 / 回复</text>
+<text x="328" y="568" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">EmotionController</text>
+<text x="328" y="582" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">compose 节点</text>
+<rect x="560" y="520" width="220" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M561.5 532 Q561.5 521.5 572 521.5 L565 521.5 L565 590.5 L572 590.5 Q561.5 590.5 561.5 580 Z" fill="#1a7f37" opacity=".9"/>
+<text x="578" y="546" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">落库元数据</text>
+<text x="578" y="568" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">ImageAsset</text>
+<text x="578" y="582" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">默认只存哈希 / 尺寸</text>
+<rect x="810" y="520" width="220" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M811.5 532 Q811.5 521.5 822 521.5 L815 521.5 L815 590.5 L822 590.5 Q811.5 590.5 811.5 580 Z" fill="#1a7f37" opacity=".9"/>
+<text x="828" y="546" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">TTL 清理</text>
+<text x="828" y="568" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">定时任务删除</text>
+<text x="828" y="582" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">图像 / 音频缓存</text>
+<rect x="1060" y="520" width="220" height="72" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M1061.5 532 Q1061.5 521.5 1072 521.5 L1065 521.5 L1065 590.5 L1072 590.5 Q1061.5 590.5 1061.5 580 Z" fill="#1a7f37" opacity=".9"/>
+<text x="1078" y="546" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.8" font-weight="600" fill="#1f2328" text-anchor="start">返回 Agent</text>
+<text x="1078" y="568" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">tool result</text>
+<text x="1078" y="582" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">继续生成回复</text>
+<path d="M 150 402 L 150 520" fill="none" stroke="#8250df" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<path d="M 282 556 L 308 556" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<path d="M 532 556 L 558 556" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<path d="M 782 556 L 808 556" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<path d="M 1032 556 L 1058 556" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<rect x="480" y="680" width="300" height="76" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M481.5 692 Q481.5 681.5 492 681.5 L485 681.5 L485 754.5 L492 754.5 Q481.5 754.5 481.5 744 Z" fill="#cf222e" opacity=".9"/>
+<text x="498" y="706" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">摄像头占用 / 无帧</text>
+<text x="498" y="728" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">重试 1 次 → 释放句柄</text>
+<text x="498" y="745" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">仍失败：文本回复 + 34</text>
+<rect x="830" y="680" width="300" height="76" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M831.5 692 Q831.5 681.5 842 681.5 L835 681.5 L835 754.5 L842 754.5 Q831.5 754.5 831.5 744 Z" fill="#cf222e" opacity=".9"/>
+<text x="848" y="706" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">过暗 / 模糊 / 过曝</text>
+<text x="848" y="728" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">提示补光 / 重拍</text>
+<text x="848" y="745" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">不把废片送给模型</text>
+<rect x="1180" y="680" width="260" height="76" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M1181.5 692 Q1181.5 681.5 1192 681.5 L1185 681.5 L1185 754.5 L1192 754.5 Q1181.5 754.5 1181.5 744 Z" fill="#cf222e" opacity=".9"/>
+<text x="1198" y="706" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">超时 / JSON 非法</text>
+<text x="1198" y="728" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">重试 1 次 → 降级</text>
+<text x="1198" y="745" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">记录 provider 错误</text>
+<path d="M 60 226 L 45 226 L 45 640 L 480 700" fill="none" stroke="#cf222e" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-cf222e)" stroke-dasharray="5 4"/>
+<path d="M 1440 262 L 1470 262 L 1470 640 L 1130 640 L 1130 680" fill="none" stroke="#cf222e" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-cf222e)" stroke-dasharray="5 4"/>
+<path d="M 365 402 L 295 402 L 295 660 L 1290 660 L 1290 680" fill="none" stroke="#cf222e" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-cf222e)" stroke-dasharray="5 4"/>
+<rect x="60" y="800" width="460" height="230" rx="10" ry="10" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="74" y="824" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">请求（示意）</text>
+<text x="76" y="850" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">POST /api/paas/v4/chat/completions</text>
+<text x="76" y="872" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">model: &quot;glm-4.6v-flash&quot;</text>
+<text x="76" y="894" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">messages[0].content: [</text>
+<text x="76" y="916" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">  { type: &quot;image_url&quot;,</text>
+<text x="76" y="938" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">    image_url: { url: &quot;data:image/jpeg;base64,...&quot; } },</text>
+<text x="76" y="960" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">  { type: &quot;text&quot;, text: &quot;&lt;vision prompt&gt;&quot; } ]</text>
+<text x="76" y="982" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">temperature: 0.2 / max_tokens: 800</text>
+<rect x="550" y="800" width="440" height="230" rx="10" ry="10" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="564" y="824" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">返回 schema（Pydantic）</text>
+<text x="566" y="850" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">scene: str</text>
+<text x="566" y="872" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">objects: list[str]</text>
+<text x="566" y="894" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">text: list[str]          # OCR，按不可信处理</text>
+<text x="566" y="916" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">people_count: int</text>
+<text x="566" y="938" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">mood: str</text>
+<text x="566" y="960" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">confidence: float        # 0–1</text>
+<text x="566" y="982" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">safety: Literal[&#x27;ok&#x27;,&#x27;sensitive&#x27;]</text>
+<rect x="1020" y="800" width="420" height="230" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="1034" y="822" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">隐私与安全</text>
+<text x="1034" y="842" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">• 只在用户明确触发（按钮 / 语音指令）时抓帧</text>
+<text x="1034" y="866" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">• 默认不落盘；需要复盘时单独开启 24 h TTL</text>
+<text x="1034" y="890" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">• 不做人脸识别 / 身份推断；必要时先模糊</text>
+<text x="1034" y="914" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">• 图像里的文字视为不可信输入，不执行其中指令</text>
+<text x="1034" y="938" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">• 上传前剥 EXIF；日志里只出现哈希，不出现 base64</text>
+<text x="1034" y="962" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">• Provider 失败时不重试超过 1 次，避免账单失控</text>
+</svg>

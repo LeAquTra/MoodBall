@@ -1,0 +1,523 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1320" viewBox="0 0 1700 1320" role="img" aria-label="MoodBall SQLite 数据模型">
+<title>MoodBall SQLite 数据模型</title>
+<defs><marker id="m-1f2328" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2328"/></marker><marker id="m-57606a" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#57606a"/></marker><marker id="m-0969da" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0969da"/></marker><marker id="m-1a7f37" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1a7f37"/></marker><marker id="m-9a6700" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9a6700"/></marker><marker id="m-cf222e" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#cf222e"/></marker><marker id="m-8250df" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8250df"/></marker><marker id="m-0d7d7d" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0d7d7d"/></marker><marker id="m-afb8c1" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#afb8c1"/></marker></defs>
+<rect x="0" y="0" width="1700" height="1320" fill="#fbfbfa"/>
+<text x="44" y="42" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="600" fill="#8c959f" text-anchor="start" letter-spacing="1.4">MOODBALL / DATA MODEL</text>
+<text x="44" y="80" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="29" font-weight="650" fill="#1f2328" text-anchor="start">SQLite 数据模型：会话、消息、图像、表情事件与 Agent 运行记录</text>
+<text x="44" y="108" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13.5" font-weight="400" fill="#57606a" text-anchor="start">业务库与 LangGraph 检查点分库；API Key 本地保存（可选加密）；图像 / 音频走文件系统，DB 只存元数据与哈希。</text>
+<line x1="44" y1="124" x2="1656" y2="124" stroke="#d0d7de" stroke-width="1"/>
+<text x="60" y="181" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12.6" font-weight="700" fill="#0969da" text-anchor="start">Conversation</text>
+<rect x="60" y="190" width="370" height="24" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="68" y="206.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">字段</text>
+<text x="198.0" y="206.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">类型</text>
+<text x="280.0" y="206.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">说明</text>
+<line x1="60" y1="238" x2="430" y2="238" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="230.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">id</text>
+<text x="198.0" y="230.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">UUID PK</text>
+<text x="280.0" y="230.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">会话 ID</text>
+<rect x="60" y="238" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="262" x2="430" y2="262" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="254.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">title</text>
+<text x="198.0" y="254.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="280.0" y="254.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">自动摘要 / 首句</text>
+<line x1="60" y1="286" x2="430" y2="286" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="278.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">status</text>
+<text x="198.0" y="278.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="280.0" y="278.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">active / archived</text>
+<rect x="60" y="286" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="310" x2="430" y2="310" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="302.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">summary</text>
+<text x="198.0" y="302.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="280.0" y="302.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">滚动摘要</text>
+<line x1="60" y1="334" x2="430" y2="334" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="326.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">created_at</text>
+<text x="198.0" y="326.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="280.0" y="326.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">创建时间</text>
+<rect x="60" y="334" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="358" x2="430" y2="358" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="350.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">updated_at</text>
+<text x="198.0" y="350.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="280.0" y="350.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">最后活动</text>
+<rect x="60" y="190" width="370" height="168" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="190.0" y1="190" x2="190.0" y2="358" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="272.0" y1="190" x2="272.0" y2="358" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="470" y="181" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12.6" font-weight="700" fill="#1a7f37" text-anchor="start">Message</text>
+<rect x="470" y="190" width="370" height="24" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="478" y="206.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">字段</text>
+<text x="608.0" y="206.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">类型</text>
+<text x="690.0" y="206.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">说明</text>
+<line x1="470" y1="238" x2="840" y2="238" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="230.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">id</text>
+<text x="608.0" y="230.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">UUID PK</text>
+<text x="690.0" y="230.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">消息 ID</text>
+<rect x="470" y="238" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="470" y1="262" x2="840" y2="262" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="254.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">conversation_id</text>
+<text x="608.0" y="254.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">FK</text>
+<text x="690.0" y="254.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">→ Conversation</text>
+<line x1="470" y1="286" x2="840" y2="286" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="278.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">role</text>
+<text x="608.0" y="278.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="690.0" y="278.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">user / assistant / tool</text>
+<rect x="470" y="286" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="470" y1="310" x2="840" y2="310" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="302.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">content</text>
+<text x="608.0" y="302.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="690.0" y="302.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">文本</text>
+<line x1="470" y1="334" x2="840" y2="334" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="326.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">emotion_id</text>
+<text x="608.0" y="326.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="690.0" y="326.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">本条触发的表情</text>
+<rect x="470" y="334" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="470" y1="358" x2="840" y2="358" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="350.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">image_id</text>
+<text x="608.0" y="350.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">FK NULL</text>
+<text x="690.0" y="350.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">→ ImageAsset</text>
+<line x1="470" y1="382" x2="840" y2="382" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="374.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">audio_id</text>
+<text x="608.0" y="374.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">FK NULL</text>
+<text x="690.0" y="374.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">→ TTSAsset</text>
+<rect x="470" y="382" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="470" y1="406" x2="840" y2="406" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="398.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">tokens_in/out</text>
+<text x="608.0" y="398.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">INT</text>
+<text x="690.0" y="398.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">输入 / 输出</text>
+<line x1="470" y1="430" x2="840" y2="430" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="422.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">latency_ms</text>
+<text x="608.0" y="422.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">INT</text>
+<text x="690.0" y="422.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">端到端耗时</text>
+<rect x="470" y="190" width="370" height="240" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="600.0" y1="190" x2="600.0" y2="430" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="682.0" y1="190" x2="682.0" y2="430" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="880" y="181" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12.6" font-weight="700" fill="#9a6700" text-anchor="start">ImageAsset</text>
+<rect x="880" y="190" width="370" height="24" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="888" y="206.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">字段</text>
+<text x="1018.0" y="206.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">类型</text>
+<text x="1100.0" y="206.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">说明</text>
+<line x1="880" y1="238" x2="1250" y2="238" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="230.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">id</text>
+<text x="1018.0" y="230.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">UUID PK</text>
+<text x="1100.0" y="230.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">图像 ID</text>
+<rect x="880" y="238" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="880" y1="262" x2="1250" y2="262" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="254.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">conversation_id</text>
+<text x="1018.0" y="254.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">FK</text>
+<text x="1100.0" y="254.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">→ Conversation</text>
+<line x1="880" y1="286" x2="1250" y2="286" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="278.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">message_id</text>
+<text x="1018.0" y="278.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">FK NULL</text>
+<text x="1100.0" y="278.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">→ Message</text>
+<rect x="880" y="286" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="880" y1="310" x2="1250" y2="310" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="302.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">path</text>
+<text x="1018.0" y="302.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1100.0" y="302.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">media/ 相对路径</text>
+<line x1="880" y1="334" x2="1250" y2="334" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="326.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">sha256</text>
+<text x="1018.0" y="326.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1100.0" y="326.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">去重 / 校验</text>
+<rect x="880" y="334" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="880" y1="358" x2="1250" y2="358" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="350.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">width / height</text>
+<text x="1018.0" y="350.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">INT</text>
+<text x="1100.0" y="350.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">尺寸</text>
+<line x1="880" y1="382" x2="1250" y2="382" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="374.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">vision_json</text>
+<text x="1018.0" y="374.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">JSON</text>
+<text x="1100.0" y="374.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">视觉结果</text>
+<rect x="880" y="382" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="880" y1="406" x2="1250" y2="406" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="398.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">expires_at</text>
+<text x="1018.0" y="398.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="1100.0" y="398.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TTL，可空</text>
+<rect x="880" y="190" width="370" height="216" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="1010.0" y1="190" x2="1010.0" y2="406" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="1092.0" y1="190" x2="1092.0" y2="406" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1290" y="181" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12.6" font-weight="700" fill="#8250df" text-anchor="start">EmotionEvent</text>
+<rect x="1290" y="190" width="370" height="24" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="1298" y="206.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">字段</text>
+<text x="1428.0" y="206.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">类型</text>
+<text x="1510.0" y="206.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">说明</text>
+<line x1="1290" y1="238" x2="1660" y2="238" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="230.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">id</text>
+<text x="1428.0" y="230.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">UUID PK</text>
+<text x="1510.0" y="230.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">事件 ID</text>
+<rect x="1290" y="238" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="1290" y1="262" x2="1660" y2="262" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="254.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">conversation_id</text>
+<text x="1428.0" y="254.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">FK</text>
+<text x="1510.0" y="254.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">→ Conversation</text>
+<line x1="1290" y1="286" x2="1660" y2="286" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="278.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">message_id</text>
+<text x="1428.0" y="278.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">FK NULL</text>
+<text x="1510.0" y="278.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">→ Message</text>
+<rect x="1290" y="286" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="1290" y1="310" x2="1660" y2="310" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="302.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">emotion_id</text>
+<text x="1428.0" y="302.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1510.0" y="302.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">00–50</text>
+<line x1="1290" y1="334" x2="1660" y2="334" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="326.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">intensity</text>
+<text x="1428.0" y="326.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">REAL</text>
+<text x="1510.0" y="326.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">0–1</text>
+<rect x="1290" y="334" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="1290" y1="358" x2="1660" y2="358" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="350.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">source</text>
+<text x="1428.0" y="350.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1510.0" y="350.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">state / llm / rule</text>
+<line x1="1290" y1="382" x2="1660" y2="382" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="374.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">reason</text>
+<text x="1428.0" y="374.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1510.0" y="374.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">可解释原因</text>
+<rect x="1290" y="190" width="370" height="192" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="1420.0" y1="190" x2="1420.0" y2="382" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="1502.0" y1="190" x2="1502.0" y2="382" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="60" y="491" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12.6" font-weight="700" fill="#0969da" text-anchor="start">ProviderProfile</text>
+<rect x="60" y="500" width="370" height="24" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="68" y="516.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">字段</text>
+<text x="198.0" y="516.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">类型</text>
+<text x="280.0" y="516.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">说明</text>
+<line x1="60" y1="548" x2="430" y2="548" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="540.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">id</text>
+<text x="198.0" y="540.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">UUID PK</text>
+<text x="280.0" y="540.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">配置 ID</text>
+<rect x="60" y="548" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="572" x2="430" y2="572" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="564.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">kind</text>
+<text x="198.0" y="564.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="280.0" y="564.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">chat / vision / tts / asr</text>
+<line x1="60" y1="596" x2="430" y2="596" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="588.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">name</text>
+<text x="198.0" y="588.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="280.0" y="588.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">显示名</text>
+<rect x="60" y="596" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="620" x2="430" y2="620" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="612.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">base_url</text>
+<text x="198.0" y="612.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="280.0" y="612.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">可自定义</text>
+<line x1="60" y1="644" x2="430" y2="644" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="636.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">model</text>
+<text x="198.0" y="636.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="280.0" y="636.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">模型名</text>
+<rect x="60" y="644" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="668" x2="430" y2="668" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="660.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">api_key</text>
+<text x="198.0" y="660.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="280.0" y="660.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">本地保存（可选加密）</text>
+<line x1="60" y1="692" x2="430" y2="692" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="684.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">extra_json</text>
+<text x="198.0" y="684.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">JSON</text>
+<text x="280.0" y="684.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">温度 / 音色等</text>
+<rect x="60" y="692" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="716" x2="430" y2="716" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="708.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">enabled</text>
+<text x="198.0" y="708.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">BOOL</text>
+<text x="280.0" y="708.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">启用</text>
+<line x1="60" y1="740" x2="430" y2="740" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="732.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">is_default</text>
+<text x="198.0" y="732.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">BOOL</text>
+<text x="280.0" y="732.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">默认项</text>
+<rect x="60" y="500" width="370" height="240" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="190.0" y1="500" x2="190.0" y2="740" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="272.0" y1="500" x2="272.0" y2="740" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="470" y="491" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12.6" font-weight="700" fill="#1a7f37" text-anchor="start">AppSetting</text>
+<rect x="470" y="500" width="370" height="24" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="478" y="516.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">字段</text>
+<text x="608.0" y="516.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">类型</text>
+<text x="690.0" y="516.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">说明</text>
+<line x1="470" y1="548" x2="840" y2="548" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="540.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">key</text>
+<text x="608.0" y="540.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT PK</text>
+<text x="690.0" y="540.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">设置键</text>
+<rect x="470" y="548" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="470" y1="572" x2="840" y2="572" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="564.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">value_json</text>
+<text x="608.0" y="564.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">JSON</text>
+<text x="690.0" y="564.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">值</text>
+<line x1="470" y1="596" x2="840" y2="596" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="588.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">updated_at</text>
+<text x="608.0" y="588.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="690.0" y="588.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">更新时间</text>
+<rect x="470" y="500" width="370" height="96" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="600.0" y1="500" x2="600.0" y2="596" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="682.0" y1="500" x2="682.0" y2="596" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="880" y="491" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12.6" font-weight="700" fill="#9a6700" text-anchor="start">MemoryFact</text>
+<rect x="880" y="500" width="370" height="24" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="888" y="516.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">字段</text>
+<text x="1018.0" y="516.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">类型</text>
+<text x="1100.0" y="516.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">说明</text>
+<line x1="880" y1="548" x2="1250" y2="548" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="540.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">id</text>
+<text x="1018.0" y="540.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">UUID PK</text>
+<text x="1100.0" y="540.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">事实 ID</text>
+<rect x="880" y="548" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="880" y1="572" x2="1250" y2="572" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="564.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">conversation_id</text>
+<text x="1018.0" y="564.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">FK</text>
+<text x="1100.0" y="564.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">→ Conversation</text>
+<line x1="880" y1="596" x2="1250" y2="596" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="588.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">fact</text>
+<text x="1018.0" y="588.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1100.0" y="588.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">自然语言事实</text>
+<rect x="880" y="596" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="880" y1="620" x2="1250" y2="620" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="612.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">tags</text>
+<text x="1018.0" y="612.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1100.0" y="612.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">逗号分隔</text>
+<line x1="880" y1="644" x2="1250" y2="644" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="636.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">confidence</text>
+<text x="1018.0" y="636.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">REAL</text>
+<text x="1100.0" y="636.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">0–1</text>
+<rect x="880" y="644" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="880" y1="668" x2="1250" y2="668" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="660.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">created_at</text>
+<text x="1018.0" y="660.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="1100.0" y="660.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">创建时间</text>
+<line x1="880" y1="692" x2="1250" y2="692" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="684.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">last_used_at</text>
+<text x="1018.0" y="684.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="1100.0" y="684.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">最近召回</text>
+<rect x="880" y="500" width="370" height="192" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="1010.0" y1="500" x2="1010.0" y2="692" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="1092.0" y1="500" x2="1092.0" y2="692" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1290" y="491" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12.6" font-weight="700" fill="#8250df" text-anchor="start">AgentRun</text>
+<rect x="1290" y="500" width="370" height="24" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="1298" y="516.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">字段</text>
+<text x="1428.0" y="516.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">类型</text>
+<text x="1510.0" y="516.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">说明</text>
+<line x1="1290" y1="548" x2="1660" y2="548" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="540.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">id</text>
+<text x="1428.0" y="540.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">UUID PK</text>
+<text x="1510.0" y="540.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">运行 ID</text>
+<rect x="1290" y="548" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="1290" y1="572" x2="1660" y2="572" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="564.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">conversation_id</text>
+<text x="1428.0" y="564.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">FK</text>
+<text x="1510.0" y="564.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">→ Conversation</text>
+<line x1="1290" y1="596" x2="1660" y2="596" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="588.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">thread_id</text>
+<text x="1428.0" y="588.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1510.0" y="588.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">LangGraph thread</text>
+<rect x="1290" y="596" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="1290" y1="620" x2="1660" y2="620" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="612.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">status</text>
+<text x="1428.0" y="612.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1510.0" y="612.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">ok / error / cancelled</text>
+<line x1="1290" y1="644" x2="1660" y2="644" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="636.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">started_at</text>
+<text x="1428.0" y="636.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="1510.0" y="636.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">开始</text>
+<rect x="1290" y="644" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="1290" y1="668" x2="1660" y2="668" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="660.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">finished_at</text>
+<text x="1428.0" y="660.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="1510.0" y="660.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">结束</text>
+<line x1="1290" y1="692" x2="1660" y2="692" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="684.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">error</text>
+<text x="1428.0" y="684.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1510.0" y="684.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">错误摘要</text>
+<rect x="1290" y="692" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="1290" y1="716" x2="1660" y2="716" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="708.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">trace_json</text>
+<text x="1428.0" y="708.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">JSON</text>
+<text x="1510.0" y="708.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">节点 / 耗时</text>
+<rect x="1290" y="500" width="370" height="216" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="1420.0" y1="500" x2="1420.0" y2="716" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="1502.0" y1="500" x2="1502.0" y2="716" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="60" y="781" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12.6" font-weight="700" fill="#0969da" text-anchor="start">ToolCall</text>
+<rect x="60" y="790" width="370" height="24" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="68" y="806.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">字段</text>
+<text x="198.0" y="806.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">类型</text>
+<text x="280.0" y="806.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">说明</text>
+<line x1="60" y1="838" x2="430" y2="838" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="830.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">id</text>
+<text x="198.0" y="830.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">UUID PK</text>
+<text x="280.0" y="830.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">调用 ID</text>
+<rect x="60" y="838" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="862" x2="430" y2="862" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="854.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">run_id</text>
+<text x="198.0" y="854.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">FK</text>
+<text x="280.0" y="854.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">→ AgentRun</text>
+<line x1="60" y1="886" x2="430" y2="886" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="878.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">name</text>
+<text x="198.0" y="878.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="280.0" y="878.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">工具名 / source / server</text>
+<rect x="60" y="886" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="910" x2="430" y2="910" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="902.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">args_json</text>
+<text x="198.0" y="902.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">JSON</text>
+<text x="280.0" y="902.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">参数（脱敏）</text>
+<line x1="60" y1="934" x2="430" y2="934" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="926.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">result_json</text>
+<text x="198.0" y="926.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">JSON</text>
+<text x="280.0" y="926.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">结果摘要</text>
+<rect x="60" y="934" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="958" x2="430" y2="958" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="950.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">status</text>
+<text x="198.0" y="950.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="280.0" y="950.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">ok / error / timeout</text>
+<line x1="60" y1="982" x2="430" y2="982" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="974.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">duration_ms</text>
+<text x="198.0" y="974.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">INT</text>
+<text x="280.0" y="974.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">耗时</text>
+<rect x="60" y="982" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="1006" x2="430" y2="1006" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="998.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">created_at</text>
+<text x="198.0" y="998.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="280.0" y="998.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">时间</text>
+<rect x="60" y="790" width="370" height="216" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="190.0" y1="790" x2="190.0" y2="1006" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="272.0" y1="790" x2="272.0" y2="1006" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="470" y="781" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12.6" font-weight="700" fill="#1a7f37" text-anchor="start">TTSAsset</text>
+<rect x="470" y="790" width="370" height="24" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="478" y="806.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">字段</text>
+<text x="608.0" y="806.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">类型</text>
+<text x="690.0" y="806.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">说明</text>
+<line x1="470" y1="838" x2="840" y2="838" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="830.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">id</text>
+<text x="608.0" y="830.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">UUID PK</text>
+<text x="690.0" y="830.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">音频 ID</text>
+<rect x="470" y="838" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="470" y1="862" x2="840" y2="862" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="854.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">message_id</text>
+<text x="608.0" y="854.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">FK NULL</text>
+<text x="690.0" y="854.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">→ Message</text>
+<line x1="470" y1="886" x2="840" y2="886" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="878.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">text_hash</text>
+<text x="608.0" y="878.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="690.0" y="878.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">内容哈希</text>
+<rect x="470" y="886" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="470" y1="910" x2="840" y2="910" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="902.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">voice</text>
+<text x="608.0" y="902.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="690.0" y="902.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">音色</text>
+<line x1="470" y1="934" x2="840" y2="934" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="926.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">model</text>
+<text x="608.0" y="926.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="690.0" y="926.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TTS 模型</text>
+<rect x="470" y="934" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="470" y1="958" x2="840" y2="958" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="950.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">path</text>
+<text x="608.0" y="950.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="690.0" y="950.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">media/ 路径</text>
+<line x1="470" y1="982" x2="840" y2="982" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="478" y="974.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">expires_at</text>
+<text x="608.0" y="974.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="690.0" y="974.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TTL</text>
+<rect x="470" y="790" width="370" height="192" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="600.0" y1="790" x2="600.0" y2="982" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="682.0" y1="790" x2="682.0" y2="982" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="880" y="781" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12.6" font-weight="700" fill="#9a6700" text-anchor="start">EventLog</text>
+<rect x="880" y="790" width="370" height="24" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="888" y="806.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">字段</text>
+<text x="1018.0" y="806.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">类型</text>
+<text x="1100.0" y="806.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">说明</text>
+<line x1="880" y1="838" x2="1250" y2="838" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="830.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">id</text>
+<text x="1018.0" y="830.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">UUID PK</text>
+<text x="1100.0" y="830.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">日志 ID</text>
+<rect x="880" y="838" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="880" y1="862" x2="1250" y2="862" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="854.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">actor</text>
+<text x="1018.0" y="854.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1100.0" y="854.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">user / system</text>
+<line x1="880" y1="886" x2="1250" y2="886" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="878.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">action</text>
+<text x="1018.0" y="878.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1100.0" y="878.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">设置 / 抓帧 / 删除</text>
+<rect x="880" y="886" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="880" y1="910" x2="1250" y2="910" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="902.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">target</text>
+<text x="1018.0" y="902.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1100.0" y="902.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">对象</text>
+<line x1="880" y1="934" x2="1250" y2="934" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="926.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">detail_json</text>
+<text x="1018.0" y="926.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">JSON</text>
+<text x="1100.0" y="926.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">不含密钥</text>
+<rect x="880" y="934" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="880" y1="958" x2="1250" y2="958" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="888" y="950.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">created_at</text>
+<text x="1018.0" y="950.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="1100.0" y="950.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">时间</text>
+<rect x="880" y="790" width="370" height="168" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="1010.0" y1="790" x2="1010.0" y2="958" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="1092.0" y1="790" x2="1092.0" y2="958" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1290" y="781" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12.6" font-weight="700" fill="#8250df" text-anchor="start">VoiceSession</text>
+<rect x="1290" y="790" width="370" height="24" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="1298" y="806.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">字段</text>
+<text x="1428.0" y="806.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">类型</text>
+<text x="1510.0" y="806.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="600" fill="#1f2328" text-anchor="start">说明</text>
+<line x1="1290" y1="838" x2="1660" y2="838" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="830.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">id</text>
+<text x="1428.0" y="830.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">UUID PK</text>
+<text x="1510.0" y="830.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">会话 ID</text>
+<rect x="1290" y="838" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="1290" y1="862" x2="1660" y2="862" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="854.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">conversation_id</text>
+<text x="1428.0" y="854.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">FK</text>
+<text x="1510.0" y="854.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">→ Conversation</text>
+<line x1="1290" y1="886" x2="1660" y2="886" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="878.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">engine</text>
+<text x="1428.0" y="878.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1510.0" y="878.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">qwen3-asr / ptt</text>
+<rect x="1290" y="886" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="1290" y1="910" x2="1660" y2="910" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="902.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">started_at</text>
+<text x="1428.0" y="902.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="1510.0" y="902.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">开始</text>
+<line x1="1290" y1="934" x2="1660" y2="934" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="926.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">ended_at</text>
+<text x="1428.0" y="926.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">DATETIME</text>
+<text x="1510.0" y="926.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">结束</text>
+<rect x="1290" y="934" width="370" height="24" fill="#f6f8fa" opacity=".55"/>
+<line x1="1290" y1="958" x2="1660" y2="958" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="950.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">wake_count</text>
+<text x="1428.0" y="950.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">INT</text>
+<text x="1510.0" y="950.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">唤醒次数</text>
+<line x1="1290" y1="982" x2="1660" y2="982" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="1298" y="974.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="500" fill="#1f2328" text-anchor="start">error</text>
+<text x="1428.0" y="974.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">TEXT</text>
+<text x="1510.0" y="974.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">错误摘要</text>
+<rect x="1290" y="790" width="370" height="192" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="1420.0" y1="790" x2="1420.0" y2="982" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="1502.0" y1="790" x2="1502.0" y2="982" stroke="#d0d7de" stroke-width="0.6"/>
+<path d="M 430 260 L 470 260" fill="none" stroke="#1a7f37" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="450" y="248" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" font-weight="400" fill="#1a7f37" text-anchor="middle">1:N</text>
+<path d="M 840 260 L 880 260" fill="none" stroke="#9a6700" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-9a6700)"/>
+<text x="860" y="248" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9" font-weight="400" fill="#9a6700" text-anchor="middle">0..1</text>
+<rect x="60" y="1080" width="1580" height="26" rx="7" ry="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.8"/>
+<text x="68" y="1097.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="600" fill="#1f2328" text-anchor="start">关系</text>
+<text x="970.8571428571429" y="1097.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="600" fill="#1f2328" text-anchor="start">基数</text>
+<text x="1228.8163265306123" y="1097.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="600" fill="#1f2328" text-anchor="start">删除策略</text>
+<line x1="60" y1="1132" x2="1640" y2="1132" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="1123.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="500" fill="#1f2328" text-anchor="start">Conversation → Message</text>
+<text x="970.8571428571429" y="1123.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="400" fill="#57606a" text-anchor="start">1:N</text>
+<text x="1228.8163265306123" y="1123.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="400" fill="#57606a" text-anchor="start">CASCADE</text>
+<rect x="60" y="1132" width="1580" height="26" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="1158" x2="1640" y2="1158" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="1149.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="500" fill="#1f2328" text-anchor="start">Conversation → ImageAsset / EmotionEvent / AgentRun / MemoryFact</text>
+<text x="970.8571428571429" y="1149.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="400" fill="#57606a" text-anchor="start">1:N</text>
+<text x="1228.8163265306123" y="1149.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="400" fill="#57606a" text-anchor="start">CASCADE</text>
+<line x1="60" y1="1184" x2="1640" y2="1184" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="1175.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="500" fill="#1f2328" text-anchor="start">Message → ImageAsset</text>
+<text x="970.8571428571429" y="1175.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="400" fill="#57606a" text-anchor="start">1:0..1</text>
+<text x="1228.8163265306123" y="1175.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="400" fill="#57606a" text-anchor="start">SET NULL</text>
+<rect x="60" y="1184" width="1580" height="26" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="1210" x2="1640" y2="1210" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="1201.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="500" fill="#1f2328" text-anchor="start">Message → TTSAsset</text>
+<text x="970.8571428571429" y="1201.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="400" fill="#57606a" text-anchor="start">1:N</text>
+<text x="1228.8163265306123" y="1201.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="400" fill="#57606a" text-anchor="start">CASCADE</text>
+<line x1="60" y1="1236" x2="1640" y2="1236" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="1227.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="500" fill="#1f2328" text-anchor="start">AgentRun → ToolCall</text>
+<text x="970.8571428571429" y="1227.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="400" fill="#57606a" text-anchor="start">1:N</text>
+<text x="1228.8163265306123" y="1227.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="400" fill="#57606a" text-anchor="start">CASCADE</text>
+<rect x="60" y="1236" width="1580" height="26" fill="#f6f8fa" opacity=".55"/>
+<line x1="60" y1="1262" x2="1640" y2="1262" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="68" y="1253.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="500" fill="#1f2328" text-anchor="start">Conversation → VoiceSession</text>
+<text x="970.8571428571429" y="1253.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="400" fill="#57606a" text-anchor="start">1:N</text>
+<text x="1228.8163265306123" y="1253.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.4" font-weight="400" fill="#57606a" text-anchor="start">CASCADE</text>
+<rect x="60" y="1080" width="1580" height="182" rx="7" ry="7" fill="none" stroke="#d0d7de" stroke-width="0.8"/>
+<line x1="962.8571428571429" y1="1080" x2="962.8571428571429" y2="1262" stroke="#d0d7de" stroke-width="0.6"/>
+<line x1="1220.8163265306123" y1="1080" x2="1220.8163265306123" y2="1262" stroke="#d0d7de" stroke-width="0.6"/>
+<text x="60" y="1272" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="400" fill="#8c959f" text-anchor="start">注：ProviderProfile / AppSetting / EventLog 不随会话级联删除；LangGraph 检查点使用独立的 agent_checkpoints.sqlite3。MCP 扩展表（McpServer / McpTool）见 7.11。</text>
+</svg>

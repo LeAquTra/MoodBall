@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AROUSE · 指令匹配冒烟测试</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 32px;
+        background: #08090a;
+        color: #d0d6e0;
+        font: 13px/1.7 ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="out">running…</pre>
+    <script type="module">
+      import { matchCommand } from '/src/commands.ts'
+      import { detectWake, extractWakeRemainder } from '/src/voice/wake.ts'
+
+      // 每条用例：[说法, 期望命中的指令 id（null 表示不该命中）]
+      const cases = [
+        ['切换主题', 'theme.toggle'],
+        ['请帮我切换到浅色模式', 'theme.light'],
+        ['关闭语音播报', 'tts.toggle'],
+        ['关闭语音', 'voice.stop'],
+        ['打开设置', 'settings.open'],
+        ['清空记录', 'logs.clear'],
+        ['回到顶部', 'page.top'],
+        ['你是谁', 'about'],
+        ['切换 主题', 'theme.toggle'],
+        ['今天天气怎么样', null],
+        ['切换', null],
+      ]
+
+      const lines = cases.map(([text, expected]) => {
+        const hit = matchCommand(text)
+        const id = hit?.command.id ?? null
+        const score = hit ? hit.score.toFixed(2) : '-'
+        const verdict = id === expected ? 'PASS' : `FAIL (expected ${expected})`
+        return `${text} => ${id ?? 'null'} (${score}) ${verdict}`
+      })
+
+      lines.push('')
+      for (const [text, expected] of [
+        ['小d小d', true],
+        ['小滴小滴', true],
+        ['小弟 小弟', true],
+        ['小丁 小的', true],
+        ['你好', false],
+        ['今天天气不错', false],
+      ]) {
+        lines.push(`wake 「${text}」 ${detectWake(text) === expected ? 'PASS' : 'FAIL'}`)
+      }
+      const remainder = extractWakeRemainder('小弟 小弟 切换 主题')
+      lines.push(`remainder 「小弟 小弟 切换 主题」 => ${remainder} ${remainder === '切换主题' ? 'PASS' : 'FAIL'}`)
+      lines.push('')
+      lines.push(`total ${lines.filter((line) => line.includes('FAIL')).length} failed`)
+
+      document.getElementById('out').textContent = lines.join('\n')
+    </script>
+  </body>
+</html>

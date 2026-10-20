@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1020" viewBox="0 0 1600 1020" role="img" aria-label="MoodBall LangGraph Agent">
+<title>MoodBall LangGraph Agent</title>
+<defs><marker id="m-1f2328" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2328"/></marker><marker id="m-57606a" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#57606a"/></marker><marker id="m-0969da" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0969da"/></marker><marker id="m-1a7f37" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1a7f37"/></marker><marker id="m-9a6700" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9a6700"/></marker><marker id="m-cf222e" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#cf222e"/></marker><marker id="m-8250df" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8250df"/></marker><marker id="m-0d7d7d" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0d7d7d"/></marker><marker id="m-afb8c1" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#afb8c1"/></marker></defs>
+<rect x="0" y="0" width="1600" height="1020" fill="#fbfbfa"/>
+<text x="44" y="42" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="600" fill="#8c959f" text-anchor="start" letter-spacing="1.4">MOODBALL / AGENT GRAPH</text>
+<text x="44" y="80" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="29" font-weight="650" fill="#1f2328" text-anchor="start">LangGraph 编排：路由 → 视觉 / 记忆 / 工具 → 生成 → 表情 → 持久化</text>
+<text x="44" y="108" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13.5" font-weight="400" fill="#57606a" text-anchor="start">把「要不要看图、要不要查记忆、要不要调工具」做成显式节点；表情决策是图里的最后一道关，不是散落在 UI 里。</text>
+<line x1="44" y1="124" x2="1556" y2="124" stroke="#d0d7de" stroke-width="1"/>
+<rect x="710" y="158" width="180" height="40" rx="20" ry="20" fill="#f6f8fa" stroke="#afb8c1" stroke-width="1.1"/>
+<text x="800" y="183" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12" font-weight="650" fill="#1f2328" text-anchor="middle">START</text>
+<path d="M 800 198 L 800 220" fill="none" stroke="#1f2328" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1f2328)"/>
+<rect x="630" y="220" width="340" height="74" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M631.5 232 Q631.5 221.5 642 221.5 L635 221.5 L635 292.5 L642 292.5 Q631.5 292.5 631.5 282 Z" fill="#0969da" opacity=".9"/>
+<text x="648" y="246" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13.5" font-weight="600" fill="#1f2328" text-anchor="start">load_context</text>
+<text x="648" y="268" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">最近 20 条消息 · 会话摘要</text>
+<text x="648" y="285" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">用户设置 · 记忆 · 可用 Provider</text>
+<path d="M 800 294 L 800 330" fill="none" stroke="#1f2328" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1f2328)"/>
+<rect x="630" y="330" width="340" height="74" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M631.5 342 Q631.5 331.5 642 331.5 L635 331.5 L635 402.5 L642 402.5 Q631.5 402.5 631.5 392 Z" fill="#0969da" opacity=".9"/>
+<text x="648" y="356" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13.5" font-weight="600" fill="#1f2328" text-anchor="start">route</text>
+<text x="648" y="378" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">规则优先：明确指令 / 安全拦截</text>
+<text x="648" y="395" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">LLM 兜底：need_vision / memory / tool</text>
+<rect x="380" y="450" width="230" height="70" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M381.5 462 Q381.5 451.5 392 451.5 L385 451.5 L385 518.5 L392 518.5 Q381.5 518.5 381.5 508 Z" fill="#9a6700" opacity=".9"/>
+<text x="398" y="476" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">capture_vision</text>
+<text x="398" y="498" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">调用 CameraService</text>
+<text x="398" y="515" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">抓帧 + 质量校验</text>
+<rect x="650" y="450" width="230" height="70" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M651.5 462 Q651.5 451.5 662 451.5 L655 451.5 L655 518.5 L662 518.5 Q651.5 518.5 651.5 508 Z" fill="#1a7f37" opacity=".9"/>
+<text x="668" y="476" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">recall_memory</text>
+<text x="668" y="498" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">SQLite FTS5 / 事实表</text>
+<text x="668" y="515" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">取最近 &amp; 最相关</text>
+<rect x="920" y="450" width="230" height="70" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M921.5 462 Q921.5 451.5 932 451.5 L925 451.5 L925 518.5 L932 518.5 Q921.5 518.5 921.5 508 Z" fill="#8250df" opacity=".9"/>
+<text x="938" y="476" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">select_tools</text>
+<text x="938" y="498" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">选 top-k 工具</text>
+<text x="938" y="515" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">compose 里 bind_tools</text>
+<rect x="380" y="560" width="230" height="70" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M381.5 572 Q381.5 561.5 392 561.5 L385 561.5 L385 628.5 L392 628.5 Q381.5 628.5 381.5 618 Z" fill="#9a6700" opacity=".9"/>
+<text x="398" y="586" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">analyze_vision</text>
+<text x="398" y="608" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">智谱 GLM-4.6V</text>
+<text x="398" y="625" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">JSON 校验 + 脱敏</text>
+<path d="M 680 404 L 495 404 L 495 450" fill="none" stroke="#9a6700" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-9a6700)"/>
+<text x="512" y="390" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="400" fill="#9a6700" text-anchor="start">need_vision</text>
+<path d="M 800 404 L 765 450" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="778" y="438" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="400" fill="#1a7f37" text-anchor="start">need_memory</text>
+<path d="M 920 404 L 1035 404 L 1035 450" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="1046" y="382" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="400" fill="#8250df" text-anchor="start">need_tool</text>
+<path d="M 630 367 L 355 367 L 355 690 L 600 690" fill="none" stroke="#57606a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-57606a)" stroke-dasharray="5 4"/>
+<text x="478" y="352" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="400" fill="#57606a" text-anchor="start">direct</text>
+<path d="M 495 520 L 495 560" fill="none" stroke="#9a6700" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-9a6700)"/>
+<path d="M 495 630 L 495 700 L 600 700" fill="none" stroke="#9a6700" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-9a6700)"/>
+<rect x="600" y="670" width="400" height="84" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M601.5 682 Q601.5 671.5 612 671.5 L605 671.5 L605 752.5 L612 752.5 Q601.5 752.5 601.5 742 Z" fill="#1a7f37" opacity=".9"/>
+<text x="618" y="696" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13.5" font-weight="600" fill="#1f2328" text-anchor="start">compose</text>
+<rect x="953.315" y="681" width="34.685" height="20" rx="10" ry="10" fill="#f0fbf3" stroke="#f0fbf3" stroke-width="0.8"/>
+<text x="960.315" y="695" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="500" fill="#1a7f37" text-anchor="start">LLM</text>
+<text x="618" y="718" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">系统人格 + 历史 + 记忆 + 视觉 JSON</text>
+<text x="618" y="735" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">输出：reply / emotion / intensity / tips</text>
+<path d="M 765 520 L 765 670" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="773" y="640" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="400" fill="#1a7f37" text-anchor="start">memory</text>
+<path d="M 1035 520 L 1035 700 L 1000 700" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<path d="M 800 754 L 800 790" fill="none" stroke="#1f2328" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1f2328)"/>
+<rect x="630" y="790" width="340" height="70" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M631.5 802 Q631.5 791.5 642 791.5 L635 791.5 L635 858.5 L642 858.5 Q631.5 858.5 631.5 848 Z" fill="#8250df" opacity=".9"/>
+<text x="648" y="816" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13.5" font-weight="600" fill="#1f2328" text-anchor="start">plan_emotion</text>
+<text x="648" y="838" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">仲裁：状态 &gt; 安全 &gt; 情绪</text>
+<text x="648" y="855" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">校验 ID / 防抖动 / 兜底 02</text>
+<path d="M 800 860 L 800 890" fill="none" stroke="#1f2328" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1f2328)"/>
+<rect x="630" y="890" width="340" height="64" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M631.5 902 Q631.5 891.5 642 891.5 L635 891.5 L635 952.5 L642 952.5 Q631.5 952.5 631.5 942 Z" fill="#1a7f37" opacity=".9"/>
+<text x="648" y="916" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13.5" font-weight="600" fill="#1f2328" text-anchor="start">persist</text>
+<text x="648" y="938" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">消息 / 表情事件 / AgentRun</text>
+<text x="648" y="955" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">只存必要元数据</text>
+<path d="M 800 954 L 800 970" fill="none" stroke="#1f2328" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1f2328)"/>
+<rect x="710" y="970" width="180" height="36" rx="18" ry="18" fill="#f6f8fa" stroke="#afb8c1" stroke-width="1.1"/>
+<text x="800" y="993" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="12" font-weight="650" fill="#1f2328" text-anchor="middle">END</text>
+<rect x="1080" y="560" width="250" height="70" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M1081.5 572 Q1081.5 561.5 1092 561.5 L1085 561.5 L1085 628.5 L1092 628.5 Q1081.5 628.5 1081.5 618 Z" fill="#cf222e" opacity=".9"/>
+<text x="1098" y="586" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">fallback_reply</text>
+<text x="1098" y="608" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">视觉/工具失败 → 文本兜底</text>
+<text x="1098" y="625" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">记录 error，不阻塞主流程</text>
+<path d="M 610 595 L 1080 595" fill="none" stroke="#cf222e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-cf222e)" stroke-dasharray="5 4"/>
+<text x="800" y="582" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.6" font-weight="400" fill="#cf222e" text-anchor="middle">vision error</text>
+<path d="M 1035 485 L 1060 485 L 1060 560" fill="none" stroke="#cf222e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-cf222e)" stroke-dasharray="5 4"/>
+<path d="M 1080 630 L 1040 630 L 1040 712 L 1000 712" fill="none" stroke="#cf222e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-cf222e)" stroke-dasharray="5 4"/>
+<text x="1068" y="650" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.6" font-weight="400" fill="#cf222e" text-anchor="start">降级文本</text>
+<rect x="60" y="430" width="280" height="300" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="74" y="452" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">AgentState（TypedDict）</text>
+<text x="74" y="472" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">messages: list[AnyMessage]</text>
+<text x="74" y="493" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">conversation_id: str</text>
+<text x="74" y="514" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">user_text: str</text>
+<text x="74" y="535" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">image_ref: str | None</text>
+<text x="74" y="556" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">vision: dict | None</text>
+<text x="74" y="577" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">intent: str</text>
+<text x="74" y="598" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">emotion: str</text>
+<text x="74" y="619" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">intensity: float</text>
+<text x="74" y="640" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">reply: str</text>
+<text x="74" y="661" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">audio_ref: str | None</text>
+<text x="74" y="682" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">error: str | None</text>
+<text x="74" y="703" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">timings: dict[str, int]</text>
+<rect x="60" y="760" width="440" height="150" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="74" y="782" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">为什么是 LangGraph 而不是一条链？</text>
+<text x="74" y="802" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">• 视觉 / 记忆 / 工具是可选分支，不是固定顺序</text>
+<text x="74" y="820" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">• 检查点让「中断后继续」和「重放一轮」有据可查</text>
+<text x="74" y="838" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">• 节点级事件可以精确驱动小球状态（acting / thinking）</text>
+<text x="74" y="856" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#57606a" text-anchor="start">• 工具调用与模型调用解耦，便于 mock 与单测</text>
+<rect x="1080" y="160" width="440" height="190" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="1094" y="182" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">模型路由（全部可配置）</text>
+<text x="1094" y="202" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.3" font-weight="400" fill="#57606a" text-anchor="start">视觉：智谱 GLM-4.6V / GLM-5.3-Flash</text>
+<text x="1094" y="220" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.3" font-weight="400" fill="#57606a" text-anchor="start">对话：DeepSeek deepseek-flash</text>
+<text x="1094" y="238" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.3" font-weight="400" fill="#57606a" text-anchor="start">TTS：阿里百炼 qwen3-tts-flash / CosyVoice</text>
+<text x="1094" y="256" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.3" font-weight="400" fill="#57606a" text-anchor="start">ASR：本机 Qwen3-ASR-0.6B（vLLM）</text>
+<text x="1094" y="274" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.3" font-weight="400" fill="#57606a" text-anchor="start">每个 Provider 独立 Base URL / Key / 超时</text>
+<rect x="1080" y="400" width="440" height="150" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="1094" y="422" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">工具注册表（内置 + Python + MCP）</text>
+<text x="1094" y="442" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">• 内置：capture_photo / recall_memory / set_emotion</text>
+<text x="1094" y="459" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">• 插件：agent/plugins/*.py 自动发现</text>
+<text x="1094" y="476" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">• MCP：stdio / http / sse；mcp__{server}__{tool}</text>
+<text x="1094" y="493" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">• select_tools 每轮选 top-k，控制上下文</text>
+<text x="1094" y="510" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">默认自动执行；调用写 ToolCall / EventLog。</text>
+<rect x="1080" y="680" width="440" height="280" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="1094" y="702" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">astream_events → 前端事件</text>
+<text x="1094" y="722" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">on_chain_start(node) → state 事件</text>
+<text x="1094" y="742" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">on_chat_model_stream   → token 事件</text>
+<text x="1094" y="762" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">on_tool_start           → ball = acting / 32</text>
+<text x="1094" y="782" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">on_tool_end             → ball = thinking / 30</text>
+<text x="1094" y="802" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">custom &#x27;emotion&#x27;        → ball.setEmotion(id)</text>
+<text x="1094" y="822" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">custom &#x27;audio&#x27;          → 播放队列</text>
+<text x="1094" y="842" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">on_chain_end            → done + persist</text>
+<text x="1094" y="862" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start"></text>
+<text x="1094" y="882" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">原则：前端只消费「产品事件」，不消费 LangGraph</text>
+<text x="1094" y="902" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#57606a" text-anchor="start">内部对象；Provider 原始异常在服务端翻译。</text>
+</svg>

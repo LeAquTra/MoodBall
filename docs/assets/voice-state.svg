@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="980" viewBox="0 0 1500 980" role="img" aria-label="MoodBall 语音会话状态机">
+<title>MoodBall 语音会话状态机</title>
+<defs><marker id="m-1f2328" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2328"/></marker><marker id="m-57606a" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#57606a"/></marker><marker id="m-0969da" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0969da"/></marker><marker id="m-1a7f37" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1a7f37"/></marker><marker id="m-9a6700" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9a6700"/></marker><marker id="m-cf222e" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#cf222e"/></marker><marker id="m-8250df" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8250df"/></marker><marker id="m-0d7d7d" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0d7d7d"/></marker><marker id="m-afb8c1" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#afb8c1"/></marker></defs>
+<rect x="0" y="0" width="1500" height="980" fill="#fbfbfa"/>
+<text x="44" y="42" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="600" fill="#8c959f" text-anchor="start" letter-spacing="1.4">MOODBALL / VOICE FSM</text>
+<text x="44" y="80" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="29" font-weight="650" fill="#1f2328" text-anchor="start">语音会话状态机：把「唤醒 → 指令 → 思考 → 播报」拆成可测试的状态</text>
+<text x="44" y="108" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13.5" font-weight="400" fill="#57606a" text-anchor="start">在 refer/arouse 的 8 个状态上增加 acting（视觉/工具）与明确的连接态；所有异步分支都必须校验会话令牌。</text>
+<line x1="44" y1="124" x2="1456" y2="124" stroke="#d0d7de" stroke-width="1"/>
+<rect x="90" y="420" width="150" height="64" rx="14" ry="14" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.2"/>
+<text x="165.0" y="447" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="16" font-weight="650" fill="#1f2328" text-anchor="middle">idle</text>
+<text x="165.0" y="467" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.2" font-weight="700" fill="#57606a" text-anchor="middle">IDLE</text>
+<rect x="290" y="420" width="160" height="64" rx="14" ry="14" fill="#fffaf0" stroke="#f0d9a8" stroke-width="1.2"/>
+<text x="370.0" y="447" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="16" font-weight="650" fill="#1f2328" text-anchor="middle">arming</text>
+<text x="370.0" y="467" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.2" font-weight="700" fill="#9a6700" text-anchor="middle">ARMING</text>
+<rect x="500" y="420" width="160" height="64" rx="14" ry="14" fill="#eef7ff" stroke="#b6d7f5" stroke-width="1.2"/>
+<text x="580.0" y="447" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="16" font-weight="650" fill="#1f2328" text-anchor="middle">armed</text>
+<text x="580.0" y="467" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.2" font-weight="700" fill="#0969da" text-anchor="middle">ARMED</text>
+<rect x="720" y="240" width="170" height="64" rx="14" ry="14" fill="#f0fbfb" stroke="#b5e4e4" stroke-width="1.2"/>
+<text x="805.0" y="267" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="16" font-weight="650" fill="#1f2328" text-anchor="middle">triggered</text>
+<text x="805.0" y="287" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.2" font-weight="700" fill="#0d7d7d" text-anchor="middle">TRIGGERED</text>
+<rect x="720" y="560" width="170" height="64" rx="14" ry="14" fill="#f0fbf3" stroke="#b7e4c7" stroke-width="1.2"/>
+<text x="805.0" y="587" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="16" font-weight="650" fill="#1f2328" text-anchor="middle">listening</text>
+<text x="805.0" y="607" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.2" font-weight="700" fill="#1a7f37" text-anchor="middle">LISTENING</text>
+<rect x="960" y="560" width="160" height="64" rx="14" ry="14" fill="#faf5ff" stroke="#dcccf7" stroke-width="1.2"/>
+<text x="1040.0" y="587" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="16" font-weight="650" fill="#1f2328" text-anchor="middle">thinking</text>
+<text x="1040.0" y="607" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.2" font-weight="700" fill="#8250df" text-anchor="middle">THINKING</text>
+<rect x="1180" y="560" width="160" height="64" rx="14" ry="14" fill="#faf5ff" stroke="#dcccf7" stroke-width="1.2"/>
+<text x="1260.0" y="587" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="16" font-weight="650" fill="#1f2328" text-anchor="middle">acting</text>
+<text x="1260.0" y="607" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.2" font-weight="700" fill="#8250df" text-anchor="middle">ACTING</text>
+<rect x="1180" y="240" width="160" height="64" rx="14" ry="14" fill="#eef7ff" stroke="#b6d7f5" stroke-width="1.2"/>
+<text x="1260.0" y="267" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="16" font-weight="650" fill="#1f2328" text-anchor="middle">speaking</text>
+<text x="1260.0" y="287" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.2" font-weight="700" fill="#0969da" text-anchor="middle">SPEAKING</text>
+<rect x="290" y="700" width="160" height="64" rx="14" ry="14" fill="#fff5f5" stroke="#ffc9c9" stroke-width="1.2"/>
+<text x="370.0" y="727" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="16" font-weight="650" fill="#1f2328" text-anchor="middle">error</text>
+<text x="370.0" y="747" font-family="'Cascadia Code','Consolas','Courier New',monospace" font-size="9.2" font-weight="700" fill="#cf222e" text-anchor="middle">ERROR</text>
+<path d="M 240 452 L 290 452" fill="none" stroke="#0969da" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<rect x="240.4" y="433.2" width="49.2" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="265.0" y="444.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#0969da" text-anchor="middle">点击开启</text>
+<path d="M 450 452 L 500 452" fill="none" stroke="#0969da" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<rect x="450.4" y="433.2" width="49.2" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="475.0" y="444.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#0969da" text-anchor="middle">模型就绪</text>
+<path d="M 580 420 L 580 300 L 720 300" fill="none" stroke="#0d7d7d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0d7d7d)"/>
+<rect x="620.059" y="281.2" width="59.882000000000005" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="650.0" y="292.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#0d7d7d" text-anchor="middle">wake 事件</text>
+<path d="M 805 304 L 805 560" fill="none" stroke="#0d7d7d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0d7d7d)"/>
+<rect x="768.927" y="419.2" width="86.146" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="812" y="430" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#0d7d7d" text-anchor="middle">提示音 / 220ms</text>
+<path d="M 890 592 L 960 592" fill="none" stroke="#1a7f37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<rect x="908.828" y="573.2" width="32.34400000000001" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="925.0" y="584.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#1a7f37" text-anchor="middle">final</text>
+<path d="M 1120 592 L 1180 592" fill="none" stroke="#8250df" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<rect x="1107.368" y="573.2" width="85.264" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="1150.0" y="584.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#8250df" text-anchor="middle">需要视觉 / 工具</text>
+<path d="M 1180 612 L 1120 612" fill="none" stroke="#8250df" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<rect x="1125.4" y="621.2" width="49.2" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="1150" y="632" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#8250df" text-anchor="middle">工具返回</text>
+<path d="M 1040 560 L 1040 304 L 1180 304" fill="none" stroke="#8250df" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<rect x="1015.4" y="413.2" width="49.2" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="1040.0" y="424.0" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#8250df" text-anchor="middle">回复就绪</text>
+<path d="M 1260 560 L 1260 304" fill="none" stroke="#8250df" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<rect x="1243.4" y="429.2" width="49.2" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="1268" y="440" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#8250df" text-anchor="middle">回复就绪</text>
+<path d="M 1180 272 L 1100 272 L 1100 180 L 580 180 L 580 420" fill="none" stroke="#0969da" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)" stroke-dasharray="5 4"/>
+<rect x="784.383" y="157.2" width="111.234" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="840" y="168" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#0969da" text-anchor="middle">播放完 + 300ms 冷却</text>
+<path d="M 720 304 L 660 304 L 660 388 L 580 420" fill="none" stroke="#0d7d7d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0d7d7d)" stroke-dasharray="5 4"/>
+<rect x="620.068" y="339.2" width="55.864000000000004" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="648" y="350" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#0d7d7d" text-anchor="middle">5s 无语音</text>
+<path d="M 720 592 L 660 592 L 660 494 L 580 484" fill="none" stroke="#1a7f37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)" stroke-dasharray="5 4"/>
+<rect x="611.836" y="535.2" width="72.328" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="648" y="546" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#1a7f37" text-anchor="middle">8s 超时 / 空</text>
+<path d="M 500 484 L 500 620 L 165 620 L 165 484" fill="none" stroke="#57606a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-57606a)" stroke-dasharray="5 4"/>
+<rect x="297.168" y="621.2" width="65.664" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="330" y="632" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#57606a" text-anchor="middle">关闭 / 卸载</text>
+<path d="M 370 484 L 370 700" fill="none" stroke="#cf222e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-cf222e)"/>
+<rect x="335.368" y="579.2" width="85.264" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="378" y="590" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#cf222e" text-anchor="middle">权限 / 服务失败</text>
+<path d="M 450 700 L 450 484" fill="none" stroke="#cf222e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-cf222e)" stroke-dasharray="4 4"/>
+<rect x="443.2" y="605.2" width="29.6" height="16.8" rx="5" ry="5" fill="#fbfbfa" stroke="none" stroke-width="0"/>
+<text x="458" y="616" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.8" font-weight="500" fill="#cf222e" text-anchor="middle">重试</text>
+<rect x="80" y="790" width="440" height="140" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="94" y="812" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">会话令牌（必须）</text>
+<text x="94" y="832" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">arm / disarm / dispose 时 session += 1；</text>
+<text x="94" y="849" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">每个 await 之后比较 token，不一致直接丢弃；</text>
+<text x="94" y="866" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">否则「关麦后又被异步结果开麦」。</text>
+<rect x="540" y="790" width="430" height="140" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="554" y="812" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">定时器</text>
+<text x="554" y="832" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">唤醒冷却 1500 ms；</text>
+<text x="554" y="849" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">唤醒后等待说话 5000 ms；</text>
+<text x="554" y="866" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">指令识别 8000 ms；播报后 300 ms 冷却。</text>
+<rect x="990" y="790" width="420" height="140" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="1004" y="812" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">自唤醒抑制</text>
+<text x="1004" y="832" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">AEC + speaking 期间不上行；</text>
+<text x="1004" y="849" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">播报结束再等 300 ms；</text>
+<text x="1004" y="866" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">TTS 文本里避免出现唤醒词。</text>
+<line x1="80" y1="946" x2="106" y2="946" stroke="#0969da" stroke-width="2.4"/>
+<circle cx="93" cy="946" r="3.4" fill="#0969da"/>
+<text x="114" y="950" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="400" fill="#57606a" text-anchor="start">连接 / 播报</text>
+<line x1="250" y1="946" x2="276" y2="946" stroke="#0d7d7d" stroke-width="2.4"/>
+<circle cx="263" cy="946" r="3.4" fill="#0d7d7d"/>
+<text x="284" y="950" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="400" fill="#57606a" text-anchor="start">唤醒</text>
+<line x1="420" y1="946" x2="446" y2="946" stroke="#1a7f37" stroke-width="2.4"/>
+<circle cx="433" cy="946" r="3.4" fill="#1a7f37"/>
+<text x="454" y="950" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="400" fill="#57606a" text-anchor="start">聆听</text>
+<line x1="590" y1="946" x2="616" y2="946" stroke="#8250df" stroke-width="2.4"/>
+<circle cx="603" cy="946" r="3.4" fill="#8250df"/>
+<text x="624" y="950" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="400" fill="#57606a" text-anchor="start">思考 / 行动</text>
+<line x1="760" y1="946" x2="786" y2="946" stroke="#cf222e" stroke-width="2.4"/>
+<circle cx="773" cy="946" r="3.4" fill="#cf222e"/>
+<text x="794" y="950" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="400" fill="#57606a" text-anchor="start">异常</text>
+<text x="980" y="950" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10" font-weight="400" fill="#8c959f" text-anchor="start">注：首版不做 barge-in；打断只保留「点击停止」这一条确定性路径。</text>
+</svg>

@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080" role="img" aria-label="MoodBall 总体架构">
+<title>MoodBall 总体架构</title>
+<defs><marker id="m-1f2328" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2328"/></marker><marker id="m-57606a" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#57606a"/></marker><marker id="m-0969da" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0969da"/></marker><marker id="m-1a7f37" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1a7f37"/></marker><marker id="m-9a6700" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9a6700"/></marker><marker id="m-cf222e" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#cf222e"/></marker><marker id="m-8250df" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8250df"/></marker><marker id="m-0d7d7d" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0d7d7d"/></marker><marker id="m-afb8c1" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#afb8c1"/></marker></defs>
+<rect x="0" y="0" width="1600" height="1080" fill="#fbfbfa"/>
+<text x="44" y="42" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="600" fill="#8c959f" text-anchor="start" letter-spacing="1.4">MOODBALL / ARCHITECTURE</text>
+<text x="44" y="80" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="29" font-weight="650" fill="#1f2328" text-anchor="start">总体架构：一个会看、会听、会说的表情小球</text>
+<text x="44" y="108" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13.5" font-weight="400" fill="#57606a" text-anchor="start">Vue 负责表现与采集，Django 负责编排与持久化，Qwen3-ASR 负责本地听觉，云 API 负责视觉、对话与嗓音。</text>
+<line x1="44" y1="124" x2="1556" y2="124" stroke="#d0d7de" stroke-width="1"/>
+<rect x="24" y="134" width="1042" height="920" rx="18" ry="18" fill="none" stroke="#afb8c1" stroke-width="1.2" stroke-dasharray="7 7"/>
+<text x="40" y="154" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#8c959f" text-anchor="start">本机边界 · 音频不出设备；图像仅在抓帧分析时发给视觉 API</text>
+<rect x="34" y="166" width="412" height="874" rx="16" ry="16" fill="#eef7ff" stroke="#b6d7f5" stroke-width="1.1"/>
+<rect x="34" y="166" width="412" height="38" rx="16" ry="16" fill="#b6d7f5" stroke="#b6d7f5" stroke-width="0"/>
+<rect x="34" y="190" width="412" height="14" rx="0" ry="0" fill="#b6d7f5" stroke="#b6d7f5" stroke-width="0"/>
+<text x="52" y="191" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="650" fill="#1f2328" text-anchor="start">① 浏览器 · Vue 3 + Vite</text>
+<text x="428" y="191" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="end">表现层 / 采集层</text>
+<rect x="54" y="224" width="372" height="112" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M55.5 236 Q55.5 225.5 66 225.5 L59 225.5 L59 334.5 L66 334.5 Q55.5 334.5 55.5 324 Z" fill="#0969da" opacity=".9"/>
+<text x="72" y="250" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">小球渲染 · EmotionBall SVG</text>
+<rect x="344.56" y="235" width="69.44" height="20" rx="10" ry="10" fill="#eef7ff" stroke="#eef7ff" stroke-width="0.8"/>
+<text x="351.56" y="249" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="500" fill="#0969da" text-anchor="start">零依赖 IIFE</text>
+<text x="72" y="272" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">EmotionBall.create(el) · 33 表情 / 25 眼环 / 3 体形</text>
+<text x="72" y="289" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">rAF 弹簧插值 · 注视 · 眨眼 · 彩带 · 撒花</text>
+<text x="72" y="306" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">对外只暴露 emotionId，不暴露几何细节</text>
+<rect x="54" y="354" width="178" height="104" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M55.5 366 Q55.5 355.5 66 355.5 L59 355.5 L59 456.5 L66 456.5 Q55.5 456.5 55.5 446 Z" fill="#0969da" opacity=".9"/>
+<text x="72" y="380" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">对话面板</text>
+<text x="72" y="402" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">SSE 流式 token</text>
+<text x="72" y="419" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">消息 / 表情 / 时间线</text>
+<rect x="244" y="354" width="182" height="104" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M245.5 366 Q245.5 355.5 256 355.5 L249 355.5 L249 456.5 L256 456.5 Q245.5 456.5 245.5 446 Z" fill="#0969da" opacity=".9"/>
+<text x="262" y="380" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">摄像头预览</text>
+<text x="262" y="402" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">MJPEG / 单帧快照</text>
+<text x="262" y="419" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">预览 / 抓帧 / 开关</text>
+<rect x="54" y="476" width="372" height="104" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M55.5 488 Q55.5 477.5 66 477.5 L59 477.5 L59 578.5 L66 578.5 Q55.5 578.5 55.5 568 Z" fill="#0969da" opacity=".9"/>
+<text x="72" y="502" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">语音会话状态机</text>
+<text x="72" y="524" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">idle → arming → armed → triggered</text>
+<text x="72" y="541" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">listening → thinking → acting → speaking</text>
+<text x="72" y="558" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">会话令牌 · busy 串行 · 冷却</text>
+<rect x="54" y="598" width="372" height="92" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M55.5 610 Q55.5 599.5 66 599.5 L59 599.5 L59 688.5 L66 688.5 Q55.5 688.5 55.5 678 Z" fill="#0969da" opacity=".9"/>
+<text x="72" y="624" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">音频管线</text>
+<text x="72" y="646" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">AudioWorklet · 16 kHz · PCM16 · 20 ms</text>
+<text x="72" y="663" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">VAD 门控 · 播放 / 打断 / 音量包络</text>
+<rect x="54" y="708" width="372" height="92" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M55.5 720 Q55.5 709.5 66 709.5 L59 709.5 L59 798.5 L66 798.5 Q55.5 798.5 55.5 788 Z" fill="#0969da" opacity=".9"/>
+<text x="72" y="734" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">Pinia Stores</text>
+<text x="72" y="756" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">chat / voice / ball / settings / devices</text>
+<text x="72" y="773" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">fetch + SSE + WebSocket</text>
+<rect x="54" y="818" width="372" height="92" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M55.5 830 Q55.5 819.5 66 819.5 L59 819.5 L59 908.5 L66 908.5 Q55.5 908.5 55.5 898 Z" fill="#0969da" opacity=".9"/>
+<text x="72" y="844" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">设置面板</text>
+<text x="72" y="866" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">Provider / MCP / 工具注册表</text>
+<text x="72" y="883" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">摄像头 / 唤醒词 / 音色 / 保留</text>
+<rect x="54" y="928" width="372" height="92" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="68" y="950" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">浏览器硬约束</text>
+<text x="68" y="970" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">• 麦克风与摄像头只在 localhost / HTTPS 可用</text>
+<text x="68" y="985" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">• 首次采集必须来自用户手势</text>
+<text x="68" y="1000" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">• 页面隐藏后不承诺持续唤醒</text>
+<rect x="488" y="166" width="556" height="874" rx="16" ry="16" fill="#f0fbf3" stroke="#b7e4c7" stroke-width="1.1"/>
+<rect x="488" y="166" width="556" height="38" rx="16" ry="16" fill="#b7e4c7" stroke="#b7e4c7" stroke-width="0"/>
+<rect x="488" y="190" width="556" height="14" rx="0" ry="0" fill="#b7e4c7" stroke="#b7e4c7" stroke-width="0"/>
+<text x="506" y="191" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="650" fill="#1f2328" text-anchor="start">② Django 6.1 · ASGI（Daphne）</text>
+<text x="1026" y="191" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="end">编排层 / 数据层</text>
+<rect x="508" y="224" width="238" height="86" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M509.5 236 Q509.5 225.5 520 225.5 L513 225.5 L513 308.5 L520 308.5 Q509.5 308.5 509.5 298 Z" fill="#1a7f37" opacity=".9"/>
+<text x="526" y="250" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">REST API · DRF</text>
+<text x="526" y="272" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">会话 / 消息 / 设置</text>
+<text x="526" y="289" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">Provider / 摄像头 / TTS</text>
+<rect x="764" y="224" width="260" height="86" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M765.5 236 Q765.5 225.5 776 225.5 L769 225.5 L769 308.5 L776 308.5 Q765.5 308.5 765.5 298 Z" fill="#1a7f37" opacity=".9"/>
+<text x="782" y="250" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">Channels Consumer</text>
+<text x="782" y="272" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">WS /ws/voice/</text>
+<text x="782" y="289" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">二进制 PCM + JSON 事件</text>
+<rect x="508" y="330" width="516" height="92" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M509.5 342 Q509.5 331.5 520 331.5 L513 331.5 L513 420.5 L520 420.5 Q509.5 420.5 509.5 410 Z" fill="#1a7f37" opacity=".9"/>
+<text x="526" y="356" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">AgentService · LangGraph</text>
+<rect x="956.0" y="341" width="56.0" height="20" rx="10" ry="10" fill="#f0fbf3" stroke="#f0fbf3" stroke-width="0.8"/>
+<text x="963.0" y="355" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="500" fill="#1a7f37" text-anchor="start">核心编排</text>
+<text x="526" y="378" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">StateGraph · 条件路由 · 工具调用</text>
+<text x="526" y="395" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">ToolRegistry · MCP · 状态 / token / 表情</text>
+<rect x="508" y="444" width="248" height="92" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M509.5 456 Q509.5 445.5 520 445.5 L513 445.5 L513 534.5 L520 534.5 Q509.5 534.5 509.5 524 Z" fill="#1a7f37" opacity=".9"/>
+<text x="526" y="470" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">Provider Adapters</text>
+<text x="526" y="492" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">智谱视觉 · DeepSeek 对话</text>
+<text x="526" y="509" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">百炼 TTS · 可替换 Base URL</text>
+<rect x="776" y="444" width="248" height="92" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M777.5 456 Q777.5 445.5 788 445.5 L781 445.5 L781 534.5 L788 534.5 Q777.5 534.5 777.5 524 Z" fill="#1a7f37" opacity=".9"/>
+<text x="794" y="470" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">CameraService · OpenCV</text>
+<text x="794" y="492" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">VideoCapture · 单飞锁</text>
+<text x="794" y="509" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">抓帧 / 缩放 / JPEG / 释放</text>
+<rect x="508" y="556" width="248" height="92" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M509.5 568 Q509.5 557.5 520 557.5 L513 557.5 L513 646.5 L520 646.5 Q509.5 646.5 509.5 636 Z" fill="#1a7f37" opacity=".9"/>
+<text x="526" y="582" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">VoiceService</text>
+<text x="526" y="604" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">ASR 客户端 · VAD 端点</text>
+<text x="526" y="621" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">唤醒词匹配 · 阶段游标</text>
+<rect x="776" y="556" width="248" height="92" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M777.5 568 Q777.5 557.5 788 557.5 L781 557.5 L781 646.5 L788 646.5 Q777.5 646.5 777.5 636 Z" fill="#1a7f37" opacity=".9"/>
+<text x="794" y="582" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">TTSService</text>
+<text x="794" y="604" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">分句 · 音色 / 指令</text>
+<text x="794" y="621" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">内容哈希缓存 · 音频文件</text>
+<rect x="508" y="668" width="248" height="80" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M509.5 680 Q509.5 669.5 520 669.5 L513 669.5 L513 746.5 L520 746.5 Q509.5 746.5 509.5 736 Z" fill="#1a7f37" opacity=".9"/>
+<text x="526" y="694" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">Settings / MCP</text>
+<text x="526" y="716" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">本地配置 · Key 可显示</text>
+<text x="526" y="733" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">MCP 配置 · 工具注册</text>
+<rect x="776" y="668" width="248" height="80" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M777.5 680 Q777.5 669.5 788 669.5 L781 669.5 L781 746.5 L788 746.5 Q777.5 746.5 777.5 736 Z" fill="#1a7f37" opacity=".9"/>
+<text x="794" y="694" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">Persistence</text>
+<text x="794" y="716" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">ORM · 短事务 · 保留策略</text>
+<text x="794" y="733" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">媒体文件与运行日志</text>
+<rect x="508" y="768" width="516" height="76" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M509.5 780 Q509.5 769.5 520 769.5 L513 769.5 L513 842.5 L520 842.5 Q509.5 842.5 509.5 832 Z" fill="#1a7f37" opacity=".9"/>
+<text x="526" y="794" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">SQLite（WAL）</text>
+<text x="526" y="816" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11.2" font-weight="400" fill="#57606a" text-anchor="start">db.sqlite3（业务）  ·  agent_checkpoints.sqlite3（LangGraph 检查点）  ·  media/（图像 / 音频缓存）</text>
+<rect x="508" y="862" width="516" height="152" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="522" y="884" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">为什么把 ASR 拆成独立进程？</text>
+<text x="522" y="904" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="400" fill="#57606a" text-anchor="start">• Qwen3-ASR 依赖 torch / vLLM，与 Django 的依赖树和生命周期不同</text>
+<text x="522" y="922" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="400" fill="#57606a" text-anchor="start">• 模型常驻显存，Django autoreload 不应反复加载模型</text>
+<text x="522" y="940" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="400" fill="#57606a" text-anchor="start">• 通过 127.0.0.1:9100 的内部 WebSocket 连接，浏览器不直连模型服务</text>
+<text x="522" y="958" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="400" fill="#57606a" text-anchor="start">• 模型崩溃只影响语音，不影响会话与设置页</text>
+<rect x="1092" y="166" width="474" height="350" rx="16" ry="16" fill="#fffaf0" stroke="#f0d9a8" stroke-width="1.1"/>
+<rect x="1092" y="166" width="474" height="38" rx="16" ry="16" fill="#f0d9a8" stroke="#f0d9a8" stroke-width="0"/>
+<rect x="1092" y="190" width="474" height="14" rx="0" ry="0" fill="#f0d9a8" stroke="#f0d9a8" stroke-width="0"/>
+<text x="1110" y="191" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="650" fill="#1f2328" text-anchor="start">③ 本机模型服务</text>
+<text x="1548" y="191" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="end">仅监听 127.0.0.1</text>
+<rect x="1112" y="224" width="434" height="82" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M1113.5 236 Q1113.5 225.5 1124 225.5 L1117 225.5 L1117 304.5 L1124 304.5 Q1113.5 304.5 1113.5 294 Z" fill="#9a6700" opacity=".9"/>
+<text x="1130" y="250" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">Qwen3-ASR-0.6B</text>
+<text x="1130" y="272" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">流式识别（vLLM 后端） · 16 kHz</text>
+<text x="1130" y="289" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">52 语言与方言 · 含 22 种中文方言</text>
+<rect x="1112" y="320" width="202" height="86" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M1113.5 332 Q1113.5 321.5 1124 321.5 L1117 321.5 L1117 404.5 L1124 404.5 Q1113.5 404.5 1113.5 394 Z" fill="#9a6700" opacity=".9"/>
+<text x="1130" y="346" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">Silero VAD</text>
+<text x="1130" y="368" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">语音端点 / 预滚 300 ms</text>
+<text x="1130" y="385" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">静音 600–800 ms 收句</text>
+<rect x="1330" y="320" width="216" height="86" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M1331.5 332 Q1331.5 321.5 1342 321.5 L1335 321.5 L1335 404.5 L1342 404.5 Q1331.5 404.5 1331.5 394 Z" fill="#9a6700" opacity=".9"/>
+<text x="1348" y="346" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">ASR FastAPI</text>
+<text x="1348" y="368" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">WS :9100 · 会话状态</text>
+<text x="1348" y="385" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">partial / final</text>
+<rect x="1112" y="420" width="434" height="72" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="1126" y="442" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">部署形态</text>
+<text x="1126" y="462" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">vLLM 负责连续 batching 与流式状态；FastAPI 只做会话与 VAD 封装。</text>
+<text x="1126" y="478" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">GPU 建议 ≥ 8 GB；CPU 只能走「VAD 分段 + 离线识别」。</text>
+<rect x="1092" y="540" width="474" height="494" rx="16" ry="16" fill="#faf5ff" stroke="#dcccf7" stroke-width="1.1"/>
+<rect x="1092" y="540" width="474" height="38" rx="16" ry="16" fill="#dcccf7" stroke="#dcccf7" stroke-width="0"/>
+<rect x="1092" y="564" width="474" height="14" rx="0" ry="0" fill="#dcccf7" stroke="#dcccf7" stroke-width="0"/>
+<text x="1110" y="565" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14" font-weight="650" fill="#1f2328" text-anchor="start">④ 云端 API（HTTPS）</text>
+<text x="1548" y="565" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="end">按需调用</text>
+<rect x="1112" y="598" width="434" height="82" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M1113.5 610 Q1113.5 599.5 1124 599.5 L1117 599.5 L1117 678.5 L1124 678.5 Q1113.5 678.5 1113.5 668 Z" fill="#8250df" opacity=".9"/>
+<text x="1130" y="624" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">智谱 GLM-4.6V / 5.3</text>
+<text x="1130" y="646" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">视觉理解 · 图像描述 / OCR / 场景</text>
+<text x="1130" y="663" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">返回 JSON：场景 / 物体 / 情绪线索</text>
+<rect x="1112" y="694" width="434" height="82" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M1113.5 706 Q1113.5 695.5 1124 695.5 L1117 695.5 L1117 774.5 L1124 774.5 Q1113.5 774.5 1113.5 764 Z" fill="#8250df" opacity=".9"/>
+<text x="1130" y="720" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">DeepSeek</text>
+<text x="1130" y="742" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">deepseek-flash · 对话 / 工具调用</text>
+<text x="1130" y="759" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">OpenAI-compatible /chat/completions</text>
+<rect x="1112" y="790" width="434" height="82" rx="12" ry="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1.1"/>
+<path d="M1113.5 802 Q1113.5 791.5 1124 791.5 L1117 791.5 L1117 870.5 L1124 870.5 Q1113.5 870.5 1113.5 860 Z" fill="#8250df" opacity=".9"/>
+<text x="1130" y="816" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="14.5" font-weight="600" fill="#1f2328" text-anchor="start">阿里百炼 TTS</text>
+<text x="1130" y="838" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">qwen3-tts-flash / CosyVoice</text>
+<text x="1130" y="855" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12" font-weight="400" fill="#57606a" text-anchor="start">非流式 URL 或 SSE 分片</text>
+<rect x="1112" y="886" width="434" height="128" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="0.9"/>
+<text x="1126" y="908" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="12.5" font-weight="600" fill="#1f2328" text-anchor="start">调用原则</text>
+<text x="1126" y="928" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">• Key 存 .env / SQLite；个人项目默认明文，可掩码显示</text>
+<text x="1126" y="944" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">• 模型名与 Base URL 全部走 Provider Profile，不写死</text>
+<text x="1126" y="960" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">• 超时 / 重试 / 熔断：失败时小球进入「出错」而不是卡死</text>
+<text x="1126" y="976" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">• 图像默认保留 7 天；可在设置里关闭</text>
+<path d="M 446 270 L 488 270" fill="none" stroke="#0969da" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<path d="M 446 530 L 488 530" fill="none" stroke="#0969da" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<path d="M 488 585 L 446 585" fill="none" stroke="#0969da" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)" stroke-dasharray="4 4"/>
+<text x="467" y="254" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.5" font-weight="400" fill="#0969da" text-anchor="middle">HTTP/SSE</text>
+<text x="467" y="514" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.5" font-weight="400" fill="#0969da" text-anchor="middle">WS</text>
+<text x="467" y="604" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.5" font-weight="400" fill="#0969da" text-anchor="middle">事件</text>
+<path d="M 1044 490 L 1092 490" fill="none" stroke="#1a7f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)" stroke-dasharray="5 4"/>
+<path d="M 1044 602 L 1092 602" fill="none" stroke="#1a7f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)" stroke-dasharray="5 4"/>
+<text x="1068" y="474" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.2" font-weight="400" fill="#1a7f37" text-anchor="middle">HTTPS</text>
+<text x="1068" y="586" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.2" font-weight="400" fill="#1a7f37" text-anchor="middle">WS</text>
+<line x1="44" y1="1058" x2="70" y2="1058" stroke="#0969da" stroke-width="2.4"/>
+<circle cx="57" cy="1058" r="3.4" fill="#0969da"/>
+<text x="78" y="1062" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">浏览器 / 表现与采集</text>
+<line x1="214" y1="1058" x2="240" y2="1058" stroke="#1a7f37" stroke-width="2.4"/>
+<circle cx="227" cy="1058" r="3.4" fill="#1a7f37"/>
+<text x="248" y="1062" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">Django / 编排与持久化</text>
+<line x1="384" y1="1058" x2="410" y2="1058" stroke="#9a6700" stroke-width="2.4"/>
+<circle cx="397" cy="1058" r="3.4" fill="#9a6700"/>
+<text x="418" y="1062" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">本机模型服务</text>
+<line x1="554" y1="1058" x2="580" y2="1058" stroke="#8250df" stroke-width="2.4"/>
+<circle cx="567" cy="1058" r="3.4" fill="#8250df"/>
+<text x="588" y="1062" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.8" font-weight="400" fill="#57606a" text-anchor="start">云端 API</text>
+<text x="1110" y="1062" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.2" font-weight="400" fill="#8c959f" text-anchor="start">音频链路：麦克风 → AudioWorklet → WS → VAD → Qwen3-ASR → 唤醒 / 指令</text>
+</svg>

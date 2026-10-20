@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1620" viewBox="0 0 1800 1620" role="img" aria-label="MoodBall 一次完整交互时序">
+<title>MoodBall 一次完整交互时序</title>
+<defs><marker id="m-1f2328" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f2328"/></marker><marker id="m-57606a" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#57606a"/></marker><marker id="m-0969da" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0969da"/></marker><marker id="m-1a7f37" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1a7f37"/></marker><marker id="m-9a6700" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9a6700"/></marker><marker id="m-cf222e" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#cf222e"/></marker><marker id="m-8250df" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8250df"/></marker><marker id="m-0d7d7d" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0d7d7d"/></marker><marker id="m-afb8c1" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#afb8c1"/></marker></defs>
+<rect x="0" y="0" width="1800" height="1620" fill="#fbfbfa"/>
+<text x="44" y="42" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11" font-weight="600" fill="#8c959f" text-anchor="start" letter-spacing="1.4">MOODBALL / SEQUENCE</text>
+<text x="44" y="80" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="29" font-weight="650" fill="#1f2328" text-anchor="start">一次完整交互：唤醒 → 指令 → 看摄像头 → 推理 → 播报</text>
+<text x="44" y="108" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="13.5" font-weight="400" fill="#57606a" text-anchor="start">本地 ASR 负责听觉，Django 负责编排，Agent 决定是否看图；所有状态变化都通过事件推给小球。</text>
+<line x1="44" y1="124" x2="1756" y2="124" stroke="#d0d7de" stroke-width="1"/>
+<rect x="35" y="146" width="110" height="40" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="90" y="171" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11.5" font-weight="650" fill="#1f2328" text-anchor="middle">用户</text>
+<line x1="90" y1="186" x2="90" y2="1540" stroke="#d0d7de" stroke-width="1" stroke-dasharray="4 5"/>
+<rect x="225" y="146" width="110" height="40" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="280" y="171" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11.5" font-weight="650" fill="#1f2328" text-anchor="middle">Vue</text>
+<line x1="280" y1="186" x2="280" y2="1540" stroke="#d0d7de" stroke-width="1" stroke-dasharray="4 5"/>
+<rect x="465" y="146" width="110" height="40" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="520" y="171" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11.5" font-weight="650" fill="#1f2328" text-anchor="middle">Django</text>
+<line x1="520" y1="186" x2="520" y2="1540" stroke="#d0d7de" stroke-width="1" stroke-dasharray="4 5"/>
+<rect x="685" y="146" width="110" height="40" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="740" y="171" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11.5" font-weight="650" fill="#1f2328" text-anchor="middle">ASR</text>
+<line x1="740" y1="186" x2="740" y2="1540" stroke="#d0d7de" stroke-width="1" stroke-dasharray="4 5"/>
+<rect x="905" y="146" width="110" height="40" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="960" y="171" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11.5" font-weight="650" fill="#1f2328" text-anchor="middle">Agent</text>
+<line x1="960" y1="186" x2="960" y2="1540" stroke="#d0d7de" stroke-width="1" stroke-dasharray="4 5"/>
+<rect x="1105" y="146" width="110" height="40" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="1160" y="171" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11.5" font-weight="650" fill="#1f2328" text-anchor="middle">Camera</text>
+<line x1="1160" y1="186" x2="1160" y2="1540" stroke="#d0d7de" stroke-width="1" stroke-dasharray="4 5"/>
+<rect x="1285" y="146" width="110" height="40" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="1340" y="171" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11.5" font-weight="650" fill="#1f2328" text-anchor="middle">智谱</text>
+<line x1="1340" y1="186" x2="1340" y2="1540" stroke="#d0d7de" stroke-width="1" stroke-dasharray="4 5"/>
+<rect x="1455" y="146" width="110" height="40" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="1510" y="171" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11.5" font-weight="650" fill="#1f2328" text-anchor="middle">DeepSeek</text>
+<line x1="1510" y1="186" x2="1510" y2="1540" stroke="#d0d7de" stroke-width="1" stroke-dasharray="4 5"/>
+<rect x="1625" y="146" width="110" height="40" rx="10" ry="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="1680" y="171" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="11.5" font-weight="650" fill="#1f2328" text-anchor="middle">百炼</text>
+<line x1="1680" y1="186" x2="1680" y2="1540" stroke="#d0d7de" stroke-width="1" stroke-dasharray="4 5"/>
+<rect x="24" y="206" width="1752" height="214" rx="8" ry="8" fill="#eef7ff" stroke="none" stroke-width="0" opacity=".55"/>
+<text x="38" y="226" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="700" fill="#0969da" text-anchor="start">① 唤醒</text>
+<rect x="24" y="438" width="1752" height="202" rx="8" ry="8" fill="#f0fbf3" stroke="none" stroke-width="0" opacity=".55"/>
+<text x="38" y="458" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="700" fill="#1a7f37" text-anchor="start">② 指令</text>
+<rect x="24" y="658" width="1752" height="272" rx="8" ry="8" fill="#fffaf0" stroke="none" stroke-width="0" opacity=".55"/>
+<text x="38" y="678" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="700" fill="#9a6700" text-anchor="start">③ 视觉</text>
+<rect x="24" y="948" width="1752" height="277" rx="8" ry="8" fill="#faf5ff" stroke="none" stroke-width="0" opacity=".55"/>
+<text x="38" y="968" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="700" fill="#8250df" text-anchor="start">④ 推理</text>
+<rect x="24" y="1243" width="1752" height="297" rx="8" ry="8" fill="#f0fbfb" stroke="none" stroke-width="0" opacity=".55"/>
+<text x="38" y="1263" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="700" fill="#0d7d7d" text-anchor="start">⑤ 播报与持久化</text>
+<path d="M 94 252 L 276 252" fill="none" stroke="#0d7d7d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0d7d7d)"/>
+<text x="185.0" y="245" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#0d7d7d" text-anchor="middle">说「小d小d」</text>
+<path d="M 284 288 L 516 288" fill="none" stroke="#0969da" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<text x="400.0" y="281" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#0969da" text-anchor="middle">WS：PCM 20ms 帧</text>
+<path d="M 524 320 L 736 320" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="630.0" y="313" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#1a7f37" text-anchor="middle">binary frame</text>
+<path d="M 736 352 L 524 352" fill="none" stroke="#9a6700" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-9a6700)"/>
+<text x="630.0" y="345" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#9a6700" text-anchor="middle">partial: 小弟 小弟</text>
+<path d="M 516 386 L 284 386" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="400.0" y="379" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#1a7f37" text-anchor="middle">wake {remainder, session}</text>
+<path d="M 284 402 L 358 402 L 358 418 L 284 418" fill="none" stroke="#0d7d7d" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0d7d7d)"/>
+<text x="366" y="414" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.6" font-weight="400" fill="#0d7d7d" text-anchor="start">提示音 → triggered → listening</text>
+<path d="M 94 486 L 276 486" fill="none" stroke="#0d7d7d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0d7d7d)"/>
+<text x="185.0" y="479" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#0d7d7d" text-anchor="middle">说「看看我桌上是什么」</text>
+<path d="M 284 518 L 516 518" fill="none" stroke="#0969da" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<text x="400.0" y="511" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#0969da" text-anchor="middle">PCM 持续上行</text>
+<path d="M 524 550 L 736 550" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="630.0" y="543" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#1a7f37" text-anchor="middle">stream</text>
+<path d="M 736 582 L 524 582" fill="none" stroke="#9a6700" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-9a6700)"/>
+<text x="630.0" y="575" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#9a6700" text-anchor="middle">partial → final</text>
+<path d="M 524 616 L 956 616" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="740.0" y="609" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#1a7f37" text-anchor="middle">invoke(text, conversation_id)</text>
+<path d="M 964 700 L 1156 700" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="1060.0" y="693" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#8250df" text-anchor="middle">capture_photo()</text>
+<path d="M 1164 722 L 1238 722 L 1238 738 L 1164 738" fill="none" stroke="#0d7d7d" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0d7d7d)"/>
+<text x="1246" y="734" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.6" font-weight="400" fill="#0d7d7d" text-anchor="start">VideoCapture read → JPEG</text>
+<path d="M 1156 766 L 964 766" fill="none" stroke="#0d7d7d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0d7d7d)"/>
+<text x="1060.0" y="759" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#0d7d7d" text-anchor="middle">image_id / bytes</text>
+<path d="M 964 800 L 1336 800" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="1150.0" y="793" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#8250df" text-anchor="middle">image_url base64 + prompt</text>
+<path d="M 1336 832 L 964 832" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="1150.0" y="825" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#8250df" text-anchor="middle">vision JSON</text>
+<path d="M 956 866 L 524 866" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="740.0" y="859" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#8250df" text-anchor="middle">node event: acting</text>
+<path d="M 516 896 L 284 896" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="400.0" y="889" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#1a7f37" text-anchor="middle">SSE: state=acting</text>
+<path d="M 964 912 L 1038 912 L 1038 928 L 964 928" fill="none" stroke="#8250df" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="1046" y="924" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.6" font-weight="400" fill="#8250df" text-anchor="start">merge vision + memory</text>
+<path d="M 964 984 L 1506 984" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="1235.0" y="977" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#8250df" text-anchor="middle">chat(messages + vision)</text>
+<path d="M 1506 1016 L 964 1016" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="1235.0" y="1009" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#1a7f37" text-anchor="middle">stream tokens</text>
+<path d="M 956 1048 L 524 1048" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="740.0" y="1041" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#8250df" text-anchor="middle">token / emotion / node</text>
+<path d="M 516 1080 L 284 1080" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="400.0" y="1073" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#1a7f37" text-anchor="middle">SSE: token, emotion</text>
+<path d="M 284 1096 L 358 1096 L 358 1112 L 284 1112" fill="none" stroke="#0969da" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<text x="366" y="1108" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.6" font-weight="400" fill="#0969da" text-anchor="start">ball.setEmotion(30 / 40 / 39)</text>
+<path d="M 964 1128 L 1038 1128 L 1038 1144 L 964 1144" fill="none" stroke="#8250df" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="1046" y="1140" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.6" font-weight="400" fill="#8250df" text-anchor="start">structured output parse</text>
+<path d="M 956 1170 L 524 1170" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="740.0" y="1163" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#8250df" text-anchor="middle">done {reply, emotion}</text>
+<path d="M 516 1202 L 284 1202" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="400.0" y="1195" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#1a7f37" text-anchor="middle">SSE: done</text>
+<path d="M 964 1278 L 1676 1278" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="1320.0" y="1271" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#8250df" text-anchor="middle">TTS(text, voice)</text>
+<path d="M 1676 1310 L 964 1310" fill="none" stroke="#9a6700" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-9a6700)"/>
+<text x="1320.0" y="1303" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#9a6700" text-anchor="middle">audio URL / SSE chunk</text>
+<path d="M 956 1342 L 524 1342" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="740.0" y="1335" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#8250df" text-anchor="middle">audio id</text>
+<path d="M 516 1374 L 284 1374" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="400.0" y="1367" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#1a7f37" text-anchor="middle">audio URL</text>
+<path d="M 284 1392 L 358 1392 L 358 1408 L 284 1408" fill="none" stroke="#0969da" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<text x="366" y="1404" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.6" font-weight="400" fill="#0969da" text-anchor="start">play + mute ASR</text>
+<path d="M 284 1436 L 516 1436" fill="none" stroke="#0969da" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-0969da)"/>
+<text x="400.0" y="1429" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#0969da" text-anchor="middle">unmute (after 300ms)</text>
+<path d="M 524 1468 L 736 1468" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="630.0" y="1461" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#1a7f37" text-anchor="middle">reset streaming state</text>
+<path d="M 956 1502 L 524 1502" fill="none" stroke="#8250df" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-8250df)"/>
+<text x="740.0" y="1495" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#8250df" text-anchor="middle">persist messages / emotion</text>
+<path d="M 516 1532 L 284 1532" fill="none" stroke="#1a7f37" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-1a7f37)"/>
+<text x="400.0" y="1525" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.0" font-weight="400" fill="#1a7f37" text-anchor="middle">done</text>
+<text x="38" y="1580" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="10.5" font-weight="400" fill="#57606a" text-anchor="start">延迟目标：唤醒 → UI &lt; 800 ms  ·  首 token &lt; 1.5 s  ·  首段音频 &lt; 1 s  ·  抓帧 &lt; 300 ms</text>
+<text x="38" y="1602" font-family="'Segoe UI','Microsoft YaHei','Noto Sans SC',sans-serif" font-size="9.6" font-weight="400" fill="#8c959f" text-anchor="start">说明：这是一条「语音触发视觉」的完整路径；纯文本对话会跳过步骤 ③，延迟更短。</text>
+</svg>

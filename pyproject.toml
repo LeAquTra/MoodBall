@@ -1,0 +1,35 @@
+[project]
+name = "moodball"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "channels>=4.3",
+    "daphne>=4.2",
+    "django>=6.1.2",
+    "django-cors-headers>=4.9.0",
+    "djangorestframework>=3.16",
+    "httpx>=0.28.1",
+    "langchain-community>=0.4.2",
+    "langchain-mcp-adapters>=0.3.2",
+    "langchain-openai>=1.7.2",
+    "langgraph>=1.2.16",
+    "langgraph-checkpoint-sqlite>=3.1.2",
+    "mcp>=1.30.0",
+    "numpy>=2.5.4",
+    "opencv-python>=5.0.0.93",
+    "pillow>=13.0.0",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "pytest-django>=4.14.0",
+    "python-dotenv>=1.2.4",
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "moodball.settings"
+python_files = ["test_*.py"]
+asyncio_mode = "auto"
+addopts = "-q"
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]

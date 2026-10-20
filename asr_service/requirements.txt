@@ -1,0 +1,27 @@
+# ASR 服务独立环境（Python 3.12；不要装进 Django 的 .venv）
+# 推荐一键：powershell -ExecutionPolicy Bypass -File scripts/setup_asr.ps1
+#
+# 手动步骤：
+#   uv venv --python 3.12 .venv-asr
+#   # GPU（RTX 40 系 / CUDA 12.8 wheel）
+#   uv pip install --python .venv-asr\Scripts\python.exe `
+#     --index-url https://download.pytorch.org/whl/cu128 torch==2.11.0+cu128
+#   uv pip install --python .venv-asr\Scripts\python.exe -r asr_service/requirements.txt
+#
+# Windows 原生不支持 vLLM 流式，默认使用 transformers 后端（VAD 分段 + 定时 partial 重转写）。
+# Linux / WSL 可改用：qwen-asr[vllm]
+
+fastapi>=0.115
+uvicorn[standard]>=0.30
+numpy>=1.26
+soundfile>=0.12
+websockets>=12
+python-multipart>=0.0.9
+python-dotenv>=1.0
+
+# Qwen3-ASR（transformers 后端）。版本由 PyPI 最新稳定版决定。
+qwen-asr==0.0.6
+
+# 可选：Silero VAD（不装则自动退回能量 VAD）
+# silero-vad
+# onnxruntime

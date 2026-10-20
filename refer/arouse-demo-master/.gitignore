@@ -1,0 +1,8 @@
+node_modules
+dist
+.preview
+*.local
+.DS_Store
+
+# 42MB Vosk 离线模型，按 public/models/README.md 获取
+public/models/*.tar.gz
